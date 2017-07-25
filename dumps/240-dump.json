@@ -1,0 +1,2175 @@
+{
+  "status": "success",
+  "data": {
+    "prices_ask": {
+      "values": [{
+        "candle_id": 65683,
+        "open_price": "302990",
+        "hight_price": "304980",
+        "close_price": "296420",
+        "low_price": "296000",
+        "volume_sum": "51.255713118106105316",
+        "candle_date": "2017-06-13 12:00",
+        "tick_count": "56"
+      }, {
+        "candle_id": 65557,
+        "open_price": "310000",
+        "hight_price": "310000",
+        "close_price": "302990",
+        "low_price": "298000",
+        "volume_sum": "76.615430938291196577",
+        "candle_date": "2017-06-13 08:00",
+        "tick_count": "86"
+      }, {
+        "candle_id": 65446,
+        "open_price": "309000",
+        "hight_price": "312050",
+        "close_price": "310130",
+        "low_price": "301130",
+        "volume_sum": "47.818263962413879451",
+        "candle_date": "2017-06-13 04:00",
+        "tick_count": "72"
+      }, {
+        "candle_id": 65059,
+        "open_price": "305800",
+        "hight_price": "325020",
+        "close_price": "309200",
+        "low_price": "296200",
+        "volume_sum": "353.067068125044522046",
+        "candle_date": "2017-06-13 00:00",
+        "tick_count": "457"
+      }, {
+        "candle_id": 64656,
+        "open_price": "289990",
+        "hight_price": "306790",
+        "close_price": "305800",
+        "low_price": "283950",
+        "volume_sum": "367.411752773385745581",
+        "candle_date": "2017-06-12 20:00",
+        "tick_count": "351"
+      }, {
+        "candle_id": 64141,
+        "open_price": "306000",
+        "hight_price": "310000",
+        "close_price": "289990",
+        "low_price": "250000",
+        "volume_sum": "948.004859086504964254",
+        "candle_date": "2017-06-12 16:00",
+        "tick_count": "903"
+      }, {
+        "candle_id": 63668,
+        "open_price": "295000",
+        "hight_price": "312140",
+        "close_price": "306000",
+        "low_price": "280000",
+        "volume_sum": "809.198827904139794227",
+        "candle_date": "2017-06-12 12:00",
+        "tick_count": "744"
+      }, {
+        "candle_id": 63511,
+        "open_price": "278000",
+        "hight_price": "300000",
+        "close_price": "294500",
+        "low_price": "265000",
+        "volume_sum": "117.167322426194783618",
+        "candle_date": "2017-06-12 08:00",
+        "tick_count": "124"
+      }, {
+        "candle_id": 63291,
+        "open_price": "256000",
+        "hight_price": "278000",
+        "close_price": "275000",
+        "low_price": "245010",
+        "volume_sum": "201.045556126285895774",
+        "candle_date": "2017-06-12 04:00",
+        "tick_count": "167"
+      }, {
+        "candle_id": 63004,
+        "open_price": "246400",
+        "hight_price": "256000",
+        "close_price": "255120",
+        "low_price": "241000",
+        "volume_sum": "174.15970327017690089",
+        "candle_date": "2017-06-12 00:00",
+        "tick_count": "192"
+      }, {
+        "candle_id": 62748,
+        "open_price": "248250",
+        "hight_price": "248700",
+        "close_price": "246000",
+        "low_price": "240000",
+        "volume_sum": "67.27672166338973482",
+        "candle_date": "2017-06-11 20:00",
+        "tick_count": "114"
+      }, {
+        "candle_id": 62544,
+        "open_price": "243980",
+        "hight_price": "248700",
+        "close_price": "248250",
+        "low_price": "235100",
+        "volume_sum": "41.063368152704447766",
+        "candle_date": "2017-06-11 16:00",
+        "tick_count": "103"
+      }, {
+        "candle_id": 62322,
+        "open_price": "246000",
+        "hight_price": "249590",
+        "close_price": "243990",
+        "low_price": "235110",
+        "volume_sum": "159.212734037196362209",
+        "candle_date": "2017-06-11 12:00",
+        "tick_count": "155"
+      }, {
+        "candle_id": 62245,
+        "open_price": "245000",
+        "hight_price": "247900",
+        "close_price": "247900",
+        "low_price": "245000",
+        "volume_sum": "29.428602397094430995",
+        "candle_date": "2017-06-11 08:00",
+        "tick_count": "16"
+      }, {
+        "candle_id": 62102,
+        "open_price": "247480",
+        "hight_price": "247800",
+        "close_price": "245000",
+        "low_price": "238260",
+        "volume_sum": "44.273230823193428396",
+        "candle_date": "2017-06-11 04:00",
+        "tick_count": "53"
+      }, {
+        "candle_id": 61770,
+        "open_price": "232000",
+        "hight_price": "247800",
+        "close_price": "247480",
+        "low_price": "225510",
+        "volume_sum": "247.308089489164971161",
+        "candle_date": "2017-06-11 00:00",
+        "tick_count": "292"
+      }, {
+        "candle_id": 61180,
+        "open_price": "221000",
+        "hight_price": "249990",
+        "close_price": "235000",
+        "low_price": "216510",
+        "volume_sum": "384.034677718886439658",
+        "candle_date": "2017-06-10 20:00",
+        "tick_count": "323"
+      }, {
+        "candle_id": 60800,
+        "open_price": "208800",
+        "hight_price": "225160",
+        "close_price": "223990",
+        "low_price": "202000",
+        "volume_sum": "366.561151273588692857",
+        "candle_date": "2017-06-10 16:00",
+        "tick_count": "301"
+      }, {
+        "candle_id": 60609,
+        "open_price": "209490",
+        "hight_price": "210000",
+        "close_price": "209990",
+        "low_price": "200200",
+        "volume_sum": "83.623755394677434618",
+        "candle_date": "2017-06-10 12:00",
+        "tick_count": "104"
+      }, {
+        "candle_id": 60582,
+        "open_price": "209490",
+        "hight_price": "209490",
+        "close_price": "209000",
+        "low_price": "209000",
+        "volume_sum": "3.77449612391999618",
+        "candle_date": "2017-06-10 08:00",
+        "tick_count": "4"
+      }, {
+        "candle_id": 60437,
+        "open_price": "199310",
+        "hight_price": "210000",
+        "close_price": "209490",
+        "low_price": "199310",
+        "volume_sum": "58.068900922534440973",
+        "candle_date": "2017-06-10 04:00",
+        "tick_count": "56"
+      }, {
+        "candle_id": 60302,
+        "open_price": "197010",
+        "hight_price": "200000",
+        "close_price": "199310",
+        "low_price": "197010",
+        "volume_sum": "73.416689227349167461",
+        "candle_date": "2017-06-10 00:00",
+        "tick_count": "64"
+      }, {
+        "candle_id": 60072,
+        "open_price": "198000",
+        "hight_price": "198900",
+        "close_price": "198900",
+        "low_price": "195000",
+        "volume_sum": "95.549461846994429644",
+        "candle_date": "2017-06-09 20:00",
+        "tick_count": "114"
+      }, {
+        "candle_id": 59809,
+        "open_price": "194900",
+        "hight_price": "198990",
+        "close_price": "198500",
+        "low_price": "192000",
+        "volume_sum": "250.279195158806001564",
+        "candle_date": "2017-06-09 16:00",
+        "tick_count": "177"
+      }, {
+        "candle_id": 59624,
+        "open_price": "192950",
+        "hight_price": "194900",
+        "close_price": "194900",
+        "low_price": "189950",
+        "volume_sum": "136.868735939768929646",
+        "candle_date": "2017-06-09 12:00",
+        "tick_count": "95"
+      }, {
+        "candle_id": 59602,
+        "open_price": "192950",
+        "hight_price": "193000",
+        "close_price": "192990",
+        "low_price": "189000",
+        "volume_sum": "10.915937387448178306",
+        "candle_date": "2017-06-09 08:00",
+        "tick_count": "9"
+      }, {
+        "candle_id": 59537,
+        "open_price": "191500",
+        "hight_price": "192950",
+        "close_price": "192950",
+        "low_price": "188510",
+        "volume_sum": "26.89257335128576185",
+        "candle_date": "2017-06-09 04:00",
+        "tick_count": "26"
+      }, {
+        "candle_id": 59394,
+        "open_price": "191950",
+        "hight_price": "191960",
+        "close_price": "191500",
+        "low_price": "188500",
+        "volume_sum": "56.83974197352946089",
+        "candle_date": "2017-06-09 00:00",
+        "tick_count": "61"
+      }, {
+        "candle_id": 59169,
+        "open_price": "191300",
+        "hight_price": "192500",
+        "close_price": "191950",
+        "low_price": "188000",
+        "volume_sum": "97.481647418602828423",
+        "candle_date": "2017-06-08 20:00",
+        "tick_count": "141"
+      }, {
+        "candle_id": 58982,
+        "open_price": "189450",
+        "hight_price": "191300",
+        "close_price": "191300",
+        "low_price": "184600",
+        "volume_sum": "64.041347291460968193",
+        "candle_date": "2017-06-08 16:00",
+        "tick_count": "98"
+      }, {
+        "candle_id": 58779,
+        "open_price": "191990",
+        "hight_price": "191990",
+        "close_price": "189450",
+        "low_price": "185000",
+        "volume_sum": "184.842431638127596486",
+        "candle_date": "2017-06-08 12:00",
+        "tick_count": "140"
+      }, {
+        "candle_id": 58685,
+        "open_price": "184500",
+        "hight_price": "191990",
+        "close_price": "191990",
+        "low_price": "184500",
+        "volume_sum": "28.542540830869821922",
+        "candle_date": "2017-06-08 08:00",
+        "tick_count": "27"
+      }, {
+        "candle_id": 58605,
+        "open_price": "182670",
+        "hight_price": "188990",
+        "close_price": "187000",
+        "low_price": "182670",
+        "volume_sum": "30.526280550452121929",
+        "candle_date": "2017-06-08 04:00",
+        "tick_count": "21"
+      }, {
+        "candle_id": 58487,
+        "open_price": "184010",
+        "hight_price": "188980",
+        "close_price": "188500",
+        "low_price": "182200",
+        "volume_sum": "67.942091324655653133",
+        "candle_date": "2017-06-08 00:00",
+        "tick_count": "52"
+      }, {
+        "candle_id": 58249,
+        "open_price": "190000",
+        "hight_price": "193800",
+        "close_price": "186000",
+        "low_price": "184000",
+        "volume_sum": "170.030194197506422327",
+        "candle_date": "2017-06-07 20:00",
+        "tick_count": "192"
+      }, {
+        "candle_id": 57651,
+        "open_price": "191700",
+        "hight_price": "195000",
+        "close_price": "190000",
+        "low_price": "189010",
+        "volume_sum": "318.472687893786852006",
+        "candle_date": "2017-06-07 16:00",
+        "tick_count": "282"
+      }, {
+        "candle_id": 57455,
+        "open_price": "189000",
+        "hight_price": "193000",
+        "close_price": "193000",
+        "low_price": "188870",
+        "volume_sum": "134.660273469766352153",
+        "candle_date": "2017-06-07 12:00",
+        "tick_count": "101"
+      }, {
+        "candle_id": 57437,
+        "open_price": "189000",
+        "hight_price": "189000",
+        "close_price": "189000",
+        "low_price": "189000",
+        "volume_sum": "2.9364005291005291",
+        "candle_date": "2017-06-07 08:00",
+        "tick_count": "5"
+      }, {
+        "candle_id": 57367,
+        "open_price": "187890",
+        "hight_price": "189000",
+        "close_price": "189000",
+        "low_price": "187000",
+        "volume_sum": "51.557033589259799664",
+        "candle_date": "2017-06-07 04:00",
+        "tick_count": "25"
+      }, {
+        "candle_id": 57241,
+        "open_price": "186500",
+        "hight_price": "187900",
+        "close_price": "187890",
+        "low_price": "186000",
+        "volume_sum": "46.990912334668346497",
+        "candle_date": "2017-06-07 00:00",
+        "tick_count": "36"
+      }, {
+        "candle_id": 57051,
+        "open_price": "183000",
+        "hight_price": "186500",
+        "close_price": "186500",
+        "low_price": "181000",
+        "volume_sum": "59.987140676334223468",
+        "candle_date": "2017-06-06 20:00",
+        "tick_count": "95"
+      }, {
+        "candle_id": 56182,
+        "open_price": "186500",
+        "hight_price": "186500",
+        "close_price": "185000",
+        "low_price": "177700",
+        "volume_sum": "154.097254692472704067",
+        "candle_date": "2017-06-06 16:00",
+        "tick_count": "196"
+      }, {
+        "candle_id": 55911,
+        "open_price": "177610",
+        "hight_price": "186050",
+        "close_price": "186050",
+        "low_price": "176500",
+        "volume_sum": "242.175276196019493234",
+        "candle_date": "2017-06-06 12:00",
+        "tick_count": "188"
+      }, {
+        "candle_id": 55858,
+        "open_price": "179000",
+        "hight_price": "179100",
+        "close_price": "179100",
+        "low_price": "179000",
+        "volume_sum": "20.700385449469570072",
+        "candle_date": "2017-06-06 08:00",
+        "tick_count": "8"
+      }, {
+        "candle_id": 55810,
+        "open_price": "179000",
+        "hight_price": "179000",
+        "close_price": "179000",
+        "low_price": "176000",
+        "volume_sum": "21.302526525139664804",
+        "candle_date": "2017-06-06 04:00",
+        "tick_count": "17"
+      }, {
+        "candle_id": 55699,
+        "open_price": "177690",
+        "hight_price": "179000",
+        "close_price": "179000",
+        "low_price": "175020",
+        "volume_sum": "49.862975542815473375",
+        "candle_date": "2017-06-06 00:00",
+        "tick_count": "57"
+      }, {
+        "candle_id": 55525,
+        "open_price": "176990",
+        "hight_price": "177900",
+        "close_price": "177690",
+        "low_price": "175000",
+        "volume_sum": "99.24491661519481388",
+        "candle_date": "2017-06-05 20:00",
+        "tick_count": "80"
+      }, {
+        "candle_id": 55376,
+        "open_price": "174690",
+        "hight_price": "177000",
+        "close_price": "176990",
+        "low_price": "173600",
+        "volume_sum": "97.557459460246299117",
+        "candle_date": "2017-06-05 16:00",
+        "tick_count": "59"
+      }, {
+        "candle_id": 55180,
+        "open_price": "176570",
+        "hight_price": "176580",
+        "close_price": "174690",
+        "low_price": "172500",
+        "volume_sum": "42.354597167328186114",
+        "candle_date": "2017-06-05 12:00",
+        "tick_count": "81"
+      }, {
+        "candle_id": 55141,
+        "open_price": "176580",
+        "hight_price": "176580",
+        "close_price": "176580",
+        "low_price": "172500",
+        "volume_sum": "14.233356178502661682",
+        "candle_date": "2017-06-05 08:00",
+        "tick_count": "14"
+      }, {
+        "candle_id": 55094,
+        "open_price": "176870",
+        "hight_price": "176980",
+        "close_price": "176590",
+        "low_price": "172410",
+        "volume_sum": "14.251186624475568182",
+        "candle_date": "2017-06-05 04:00",
+        "tick_count": "20"
+      }, {
+        "candle_id": 54953,
+        "open_price": "174500",
+        "hight_price": "176950",
+        "close_price": "176870",
+        "low_price": "171100",
+        "volume_sum": "62.543666799006820206",
+        "candle_date": "2017-06-05 00:00",
+        "tick_count": "59"
+      }, {
+        "candle_id": 54829,
+        "open_price": "175680",
+        "hight_price": "176930",
+        "close_price": "174500",
+        "low_price": "168000",
+        "volume_sum": "66.250038309022758385",
+        "candle_date": "2017-06-04 20:00",
+        "tick_count": "96"
+      }, {
+        "candle_id": 54673,
+        "open_price": "174000",
+        "hight_price": "175900",
+        "close_price": "175680",
+        "low_price": "172010",
+        "volume_sum": "98.976414116278779947",
+        "candle_date": "2017-06-04 16:00",
+        "tick_count": "75"
+      }, {
+        "candle_id": 54529,
+        "open_price": "167300",
+        "hight_price": "174000",
+        "close_price": "174000",
+        "low_price": "167300",
+        "volume_sum": "163.287556760448138746",
+        "candle_date": "2017-06-04 12:00",
+        "tick_count": "77"
+      }, {
+        "candle_id": 54498,
+        "open_price": "167300",
+        "hight_price": "167300",
+        "close_price": "167300",
+        "low_price": "166000",
+        "volume_sum": "4.928191625377643495",
+        "candle_date": "2017-06-04 08:00",
+        "tick_count": "8"
+      }, {
+        "candle_id": 54449,
+        "open_price": "165400",
+        "hight_price": "167310",
+        "close_price": "167300",
+        "low_price": "165400",
+        "volume_sum": "26.72604380585778774",
+        "candle_date": "2017-06-04 04:00",
+        "tick_count": "19"
+      }, {
+        "candle_id": 54403,
+        "open_price": "163000",
+        "hight_price": "165500",
+        "close_price": "165500",
+        "low_price": "159030",
+        "volume_sum": "37.126096289357954991",
+        "candle_date": "2017-06-04 00:00",
+        "tick_count": "30"
+      }, {
+        "candle_id": 54312,
+        "open_price": "159880",
+        "hight_price": "163950",
+        "close_price": "163690",
+        "low_price": "159880",
+        "volume_sum": "14.520803275039734788",
+        "candle_date": "2017-06-03 20:00",
+        "tick_count": "34"
+      }, {
+        "candle_id": 54216,
+        "open_price": "162000",
+        "hight_price": "164400",
+        "close_price": "162500",
+        "low_price": "159000",
+        "volume_sum": "152.43151464517009668",
+        "candle_date": "2017-06-03 16:00",
+        "tick_count": "77"
+      }, {
+        "candle_id": 54163,
+        "open_price": "162280",
+        "hight_price": "162990",
+        "close_price": "162000",
+        "low_price": "161000",
+        "volume_sum": "22.073815045231132106",
+        "candle_date": "2017-06-03 12:00",
+        "tick_count": "22"
+      }, {
+        "candle_id": 54150,
+        "open_price": "162990",
+        "hight_price": "162990",
+        "close_price": "162990",
+        "low_price": "162990",
+        "volume_sum": "0.806767286336585066",
+        "candle_date": "2017-06-03 04:00",
+        "tick_count": "2"
+      }, {
+        "candle_id": 54074,
+        "open_price": "164500",
+        "hight_price": "164500",
+        "close_price": "162990",
+        "low_price": "162990",
+        "volume_sum": "9.462297132778286067",
+        "candle_date": "2017-06-03 00:00",
+        "tick_count": "18"
+      }, {
+        "candle_id": 53973,
+        "open_price": "162500",
+        "hight_price": "165500",
+        "close_price": "164900",
+        "low_price": "161120",
+        "volume_sum": "56.222603484824353216",
+        "candle_date": "2017-06-02 20:00",
+        "tick_count": "46"
+      }, {
+        "candle_id": 53814,
+        "open_price": "163990",
+        "hight_price": "165500",
+        "close_price": "162490",
+        "low_price": "161610",
+        "volume_sum": "73.342765371915287013",
+        "candle_date": "2017-06-02 16:00",
+        "tick_count": "91"
+      }, {
+        "candle_id": 53682,
+        "open_price": "167990",
+        "hight_price": "167990",
+        "close_price": "165490",
+        "low_price": "162200",
+        "volume_sum": "31.743478561057661781",
+        "candle_date": "2017-06-02 12:00",
+        "tick_count": "54"
+      }, {
+        "candle_id": 53583,
+        "open_price": "168000",
+        "hight_price": "170000",
+        "close_price": "167000",
+        "low_price": "162000",
+        "volume_sum": "58.43786787579223582",
+        "candle_date": "2017-06-02 04:00",
+        "tick_count": "65"
+      }, {
+        "candle_id": 53401,
+        "open_price": "168130",
+        "hight_price": "168400",
+        "close_price": "168000",
+        "low_price": "161600",
+        "volume_sum": "92.845252016183786263",
+        "candle_date": "2017-06-02 00:00",
+        "tick_count": "104"
+      }, {
+        "candle_id": 53243,
+        "open_price": "166900",
+        "hight_price": "168500",
+        "close_price": "168140",
+        "low_price": "161510",
+        "volume_sum": "54.117314093489369161",
+        "candle_date": "2017-06-01 20:00",
+        "tick_count": "73"
+      }, {
+        "candle_id": 52977,
+        "open_price": "166700",
+        "hight_price": "169980",
+        "close_price": "167000",
+        "low_price": "160930",
+        "volume_sum": "83.762398359800333778",
+        "candle_date": "2017-06-01 16:00",
+        "tick_count": "170"
+      }, {
+        "candle_id": 52720,
+        "open_price": "173400",
+        "hight_price": "173400",
+        "close_price": "166700",
+        "low_price": "161510",
+        "volume_sum": "170.285024644014665417",
+        "candle_date": "2017-06-01 12:00",
+        "tick_count": "220"
+      }, {
+        "candle_id": 52681,
+        "open_price": "169630",
+        "hight_price": "173450",
+        "close_price": "173450",
+        "low_price": "168800",
+        "volume_sum": "18.832152231220015635",
+        "candle_date": "2017-06-01 08:00",
+        "tick_count": "18"
+      }, {
+        "candle_id": 52625,
+        "open_price": "172800",
+        "hight_price": "172900",
+        "close_price": "169630",
+        "low_price": "169610",
+        "volume_sum": "3.161280584152689415",
+        "candle_date": "2017-06-01 04:00",
+        "tick_count": "11"
+      }, {
+        "candle_id": 52470,
+        "open_price": "171500",
+        "hight_price": "173950",
+        "close_price": "172900",
+        "low_price": "168500",
+        "volume_sum": "65.439828902529119449",
+        "candle_date": "2017-06-01 00:00",
+        "tick_count": "78"
+      }, {
+        "candle_id": 52267,
+        "open_price": "170000",
+        "hight_price": "173580",
+        "close_price": "171890",
+        "low_price": "165950",
+        "volume_sum": "125.330515015601770862",
+        "candle_date": "2017-05-31 20:00",
+        "tick_count": "126"
+      }, {
+        "candle_id": 52012,
+        "open_price": "169700",
+        "hight_price": "173840",
+        "close_price": "169990",
+        "low_price": "160000",
+        "volume_sum": "182.807038374716080387",
+        "candle_date": "2017-05-31 16:00",
+        "tick_count": "221"
+      }, {
+        "candle_id": 51762,
+        "open_price": "169900",
+        "hight_price": "174000",
+        "close_price": "169700",
+        "low_price": "160040",
+        "volume_sum": "104.969318125351378209",
+        "candle_date": "2017-05-31 12:00",
+        "tick_count": "142"
+      }, {
+        "candle_id": 51672,
+        "open_price": "155020",
+        "hight_price": "173990",
+        "close_price": "170000",
+        "low_price": "155020",
+        "volume_sum": "19.719508621185125581",
+        "candle_date": "2017-05-31 08:00",
+        "tick_count": "25"
+      }, {
+        "candle_id": 51526,
+        "open_price": "173000",
+        "hight_price": "175000",
+        "close_price": "169990",
+        "low_price": "155000",
+        "volume_sum": "64.958601995045417008",
+        "candle_date": "2017-05-31 04:00",
+        "tick_count": "119"
+      }, {
+        "candle_id": 51246,
+        "open_price": "173000",
+        "hight_price": "175000",
+        "close_price": "175000",
+        "low_price": "170220",
+        "volume_sum": "124.859693935478424412",
+        "candle_date": "2017-05-31 00:00",
+        "tick_count": "150"
+      }, {
+        "candle_id": 50902,
+        "open_price": "168000",
+        "hight_price": "174800",
+        "close_price": "174800",
+        "low_price": "140000",
+        "volume_sum": "276.734702062433801467",
+        "candle_date": "2017-05-30 20:00",
+        "tick_count": "300"
+      }, {
+        "candle_id": 50582,
+        "open_price": "167990",
+        "hight_price": "169800",
+        "close_price": "168000",
+        "low_price": "140000",
+        "volume_sum": "206.194661558119334121",
+        "candle_date": "2017-05-30 16:00",
+        "tick_count": "268"
+      }, {
+        "candle_id": 50297,
+        "open_price": "159990",
+        "hight_price": "169800",
+        "close_price": "167990",
+        "low_price": "150900",
+        "volume_sum": "141.332481862040751641",
+        "candle_date": "2017-05-30 12:00",
+        "tick_count": "212"
+      }, {
+        "candle_id": 50257,
+        "open_price": "155500",
+        "hight_price": "159990",
+        "close_price": "159990",
+        "low_price": "155500",
+        "volume_sum": "11.535158057424766694",
+        "candle_date": "2017-05-30 08:00",
+        "tick_count": "11"
+      }, {
+        "candle_id": 50158,
+        "open_price": "156120",
+        "hight_price": "159980",
+        "close_price": "159980",
+        "low_price": "155000",
+        "volume_sum": "47.895264506166234224",
+        "candle_date": "2017-05-30 04:00",
+        "tick_count": "46"
+      }, {
+        "candle_id": 49963,
+        "open_price": "158840",
+        "hight_price": "159740",
+        "close_price": "159740",
+        "low_price": "146000",
+        "volume_sum": "73.329280082302228396",
+        "candle_date": "2017-05-30 00:00",
+        "tick_count": "134"
+      }, {
+        "candle_id": 49703,
+        "open_price": "145500",
+        "hight_price": "159800",
+        "close_price": "158840",
+        "low_price": "144900",
+        "volume_sum": "101.814532569715460056",
+        "candle_date": "2017-05-29 20:00",
+        "tick_count": "153"
+      }, {
+        "candle_id": 49530,
+        "open_price": "146900",
+        "hight_price": "150000",
+        "close_price": "149000",
+        "low_price": "145500",
+        "volume_sum": "116.275485475350189438",
+        "candle_date": "2017-05-29 16:00",
+        "tick_count": "90"
+      }, {
+        "candle_id": 49355,
+        "open_price": "142990",
+        "hight_price": "147990",
+        "close_price": "147990",
+        "low_price": "140000",
+        "volume_sum": "79.429595863066114587",
+        "candle_date": "2017-05-29 12:00",
+        "tick_count": "77"
+      }, {
+        "candle_id": 49321,
+        "open_price": "137910",
+        "hight_price": "142990",
+        "close_price": "142990",
+        "low_price": "137910",
+        "volume_sum": "8.813409499001328664",
+        "candle_date": "2017-05-29 08:00",
+        "tick_count": "6"
+      }, {
+        "candle_id": 49264,
+        "open_price": "145490",
+        "hight_price": "145490",
+        "close_price": "137910",
+        "low_price": "137910",
+        "volume_sum": "2.906486755120388862",
+        "candle_date": "2017-05-29 04:00",
+        "tick_count": "10"
+      }, {
+        "candle_id": 49146,
+        "open_price": "143000",
+        "hight_price": "149500",
+        "close_price": "145490",
+        "low_price": "135110",
+        "volume_sum": "24.404797081908719053",
+        "candle_date": "2017-05-29 00:00",
+        "tick_count": "76"
+      }, {
+        "candle_id": 48854,
+        "open_price": "135000",
+        "hight_price": "148300",
+        "close_price": "148300",
+        "low_price": "131000",
+        "volume_sum": "101.564348453373605235",
+        "candle_date": "2017-05-28 20:00",
+        "tick_count": "77"
+      }, {
+        "candle_id": 48754,
+        "open_price": "141990",
+        "hight_price": "142500",
+        "close_price": "141500",
+        "low_price": "135000",
+        "volume_sum": "4.291693883235935355",
+        "candle_date": "2017-05-28 16:00",
+        "tick_count": "24"
+      }, {
+        "candle_id": 48642,
+        "open_price": "144000",
+        "hight_price": "144790",
+        "close_price": "142000",
+        "low_price": "128000",
+        "volume_sum": "48.812457439446366781",
+        "candle_date": "2017-05-28 12:00",
+        "tick_count": "74"
+      }, {
+        "candle_id": 48598,
+        "open_price": "142000",
+        "hight_price": "144790",
+        "close_price": "144790",
+        "low_price": "142000",
+        "volume_sum": "37.427620631850567626",
+        "candle_date": "2017-05-28 08:00",
+        "tick_count": "11"
+      }, {
+        "candle_id": 48494,
+        "open_price": "135000",
+        "hight_price": "142500",
+        "close_price": "142000",
+        "low_price": "135000",
+        "volume_sum": "56.764538476956252195",
+        "candle_date": "2017-05-28 04:00",
+        "tick_count": "28"
+      }, {
+        "candle_id": 48345,
+        "open_price": "120000",
+        "hight_price": "135000",
+        "close_price": "135000",
+        "low_price": "120000",
+        "volume_sum": "31.200606599478942172",
+        "candle_date": "2017-05-28 00:00",
+        "tick_count": "49"
+      }, {
+        "candle_id": 48112,
+        "open_price": "149890",
+        "hight_price": "149890",
+        "close_price": "130000",
+        "low_price": "118010",
+        "volume_sum": "104.385953789418597315",
+        "candle_date": "2017-05-27 20:00",
+        "tick_count": "158"
+      }, {
+        "candle_id": 47885,
+        "open_price": "127100",
+        "hight_price": "149900",
+        "close_price": "149900",
+        "low_price": "125000",
+        "volume_sum": "101.447592368092607689",
+        "candle_date": "2017-05-27 16:00",
+        "tick_count": "118"
+      }, {
+        "candle_id": 47666,
+        "open_price": "124000",
+        "hight_price": "149880",
+        "close_price": "144900",
+        "low_price": "96020",
+        "volume_sum": "45.670131805317794815",
+        "candle_date": "2017-05-27 12:00",
+        "tick_count": "97"
+      }, {
+        "candle_id": 47508,
+        "open_price": "115000",
+        "hight_price": "139000",
+        "close_price": "124000",
+        "low_price": "95000",
+        "volume_sum": "54.013701079136690647",
+        "candle_date": "2017-05-27 08:00",
+        "tick_count": "71"
+      }, {
+        "candle_id": 47382,
+        "open_price": "130000",
+        "hight_price": "139990",
+        "close_price": "120000",
+        "low_price": "101010",
+        "volume_sum": "66.183099450387346506",
+        "candle_date": "2017-05-27 04:00",
+        "tick_count": "88"
+      }, {
+        "candle_id": 47202,
+        "open_price": "147000",
+        "hight_price": "147500",
+        "close_price": "139990",
+        "low_price": "130000",
+        "volume_sum": "48.549532698434465103",
+        "candle_date": "2017-05-27 00:00",
+        "tick_count": "99"
+      }, {
+        "candle_id": 46143,
+        "open_price": "135000",
+        "hight_price": "157000",
+        "close_price": "147500",
+        "low_price": "134990",
+        "volume_sum": "130.643102199873046631",
+        "candle_date": "2017-05-26 20:00",
+        "tick_count": "186"
+      }, {
+        "candle_id": 39410,
+        "open_price": "160000",
+        "hight_price": "165000",
+        "close_price": "135000",
+        "low_price": "134800",
+        "volume_sum": "372.192714166295970629",
+        "candle_date": "2017-05-26 16:00",
+        "tick_count": "362"
+      }, {
+        "candle_id": 39142,
+        "open_price": "170000",
+        "hight_price": "179990",
+        "close_price": "160000",
+        "low_price": "158200",
+        "volume_sum": "168.701592282914300398",
+        "candle_date": "2017-05-26 12:00",
+        "tick_count": "193"
+      }, {
+        "candle_id": 39042,
+        "open_price": "165000",
+        "hight_price": "174000",
+        "close_price": "174000",
+        "low_price": "158120",
+        "volume_sum": "35.632225287356321839",
+        "candle_date": "2017-05-26 08:00",
+        "tick_count": "23"
+      }, {
+        "candle_id": 38947,
+        "open_price": "163000",
+        "hight_price": "165000",
+        "close_price": "164000",
+        "low_price": "158000",
+        "volume_sum": "30.787434175995255388",
+        "candle_date": "2017-05-26 04:00",
+        "tick_count": "42"
+      }, {
+        "candle_id": 38688,
+        "open_price": "167970",
+        "hight_price": "167990",
+        "close_price": "163000",
+        "low_price": "155010",
+        "volume_sum": "124.448583461781488884",
+        "candle_date": "2017-05-26 00:00",
+        "tick_count": "164"
+      }, {
+        "candle_id": 38281,
+        "open_price": "166990",
+        "hight_price": "179490",
+        "close_price": "167990",
+        "low_price": "150000",
+        "volume_sum": "337.24851050213101521",
+        "candle_date": "2017-05-25 20:00",
+        "tick_count": "298"
+      }, {
+        "candle_id": 31471,
+        "open_price": "189890",
+        "hight_price": "192870",
+        "close_price": "163290",
+        "low_price": "156000",
+        "volume_sum": "320.222423413259304262",
+        "candle_date": "2017-05-25 16:00",
+        "tick_count": "357"
+      }, {
+        "candle_id": 31116,
+        "open_price": "174500",
+        "hight_price": "192930",
+        "close_price": "189890",
+        "low_price": "163510",
+        "volume_sum": "288.842016863955216593",
+        "candle_date": "2017-05-25 12:00",
+        "tick_count": "240"
+      }, {
+        "candle_id": 30977,
+        "open_price": "164990",
+        "hight_price": "174900",
+        "close_price": "174500",
+        "low_price": "163010",
+        "volume_sum": "46.185461063464837047",
+        "candle_date": "2017-05-25 08:00",
+        "tick_count": "39"
+      }, {
+        "candle_id": 30690,
+        "open_price": "187980",
+        "hight_price": "192930",
+        "close_price": "165000",
+        "low_price": "145000",
+        "volume_sum": "244.912307689289190638",
+        "candle_date": "2017-05-25 04:00",
+        "tick_count": "196"
+      }, {
+        "candle_id": 30365,
+        "open_price": "184280",
+        "hight_price": "188440",
+        "close_price": "187980",
+        "low_price": "175200",
+        "volume_sum": "199.213435026492933261",
+        "candle_date": "2017-05-25 00:00",
+        "tick_count": "204"
+      }, {
+        "candle_id": 29997,
+        "open_price": "172000",
+        "hight_price": "184900",
+        "close_price": "184000",
+        "low_price": "168000",
+        "volume_sum": "302.41028215101547757",
+        "candle_date": "2017-05-24 20:00",
+        "tick_count": "286"
+      }, {
+        "candle_id": 27681,
+        "open_price": "163990",
+        "hight_price": "174000",
+        "close_price": "172000",
+        "low_price": "162000",
+        "volume_sum": "345.525161724781301241",
+        "candle_date": "2017-05-24 16:00",
+        "tick_count": "330"
+      }, {
+        "candle_id": 27326,
+        "open_price": "145050",
+        "hight_price": "164500",
+        "close_price": "163990",
+        "low_price": "143050",
+        "volume_sum": "351.410138059613137637",
+        "candle_date": "2017-05-24 12:00",
+        "tick_count": "339"
+      }, {
+        "candle_id": 27241,
+        "open_price": "144000",
+        "hight_price": "145050",
+        "close_price": "145050",
+        "low_price": "144000",
+        "volume_sum": "84.78307972426106104",
+        "candle_date": "2017-05-24 08:00",
+        "tick_count": "32"
+      }],
+      "type": "ASK",
+      "timeframe": "240"
+    },
+    "prices_bid": {
+      "values": [{
+        "candle_id": 65678,
+        "open_price": "302990",
+        "hight_price": "304980",
+        "close_price": "296100",
+        "low_price": "296000",
+        "volume_sum": "51.255713118106105316",
+        "candle_date": "2017-06-13 12:00",
+        "tick_count": "54"
+      }, {
+        "candle_id": 65562,
+        "open_price": "301140",
+        "hight_price": "305610",
+        "close_price": "300100",
+        "low_price": "298000",
+        "volume_sum": "76.615430938291196577",
+        "candle_date": "2017-06-13 08:00",
+        "tick_count": "69"
+      }, {
+        "candle_id": 65441,
+        "open_price": "302210",
+        "hight_price": "312050",
+        "close_price": "301130",
+        "low_price": "301130",
+        "volume_sum": "47.818263962413879451",
+        "candle_date": "2017-06-13 04:00",
+        "tick_count": "74"
+      }, {
+        "candle_id": 65053,
+        "open_price": "305800",
+        "hight_price": "325020",
+        "close_price": "302200",
+        "low_price": "296200",
+        "volume_sum": "353.067068125044522046",
+        "candle_date": "2017-06-13 00:00",
+        "tick_count": "489"
+      }, {
+        "candle_id": 64651,
+        "open_price": "289990",
+        "hight_price": "306790",
+        "close_price": "301100",
+        "low_price": "283950",
+        "volume_sum": "367.411752773385745581",
+        "candle_date": "2017-06-12 20:00",
+        "tick_count": "495"
+      }, {
+        "candle_id": 64136,
+        "open_price": "306000",
+        "hight_price": "310000",
+        "close_price": "285000",
+        "low_price": "250000",
+        "volume_sum": "948.004859086504964254",
+        "candle_date": "2017-06-12 16:00",
+        "tick_count": "971"
+      }, {
+        "candle_id": 63673,
+        "open_price": "299980",
+        "hight_price": "312140",
+        "close_price": "300000",
+        "low_price": "280000",
+        "volume_sum": "809.198827904139794227",
+        "candle_date": "2017-06-12 12:00",
+        "tick_count": "852"
+      }, {
+        "candle_id": 63506,
+        "open_price": "260000",
+        "hight_price": "300000",
+        "close_price": "282500",
+        "low_price": "260000",
+        "volume_sum": "117.167322426194783618",
+        "candle_date": "2017-06-12 08:00",
+        "tick_count": "138"
+      }, {
+        "candle_id": 63296,
+        "open_price": "251540",
+        "hight_price": "278000",
+        "close_price": "256500",
+        "low_price": "245010",
+        "volume_sum": "201.045556126285895774",
+        "candle_date": "2017-06-12 04:00",
+        "tick_count": "212"
+      }, {
+        "candle_id": 62997,
+        "open_price": "240500",
+        "hight_price": "255120",
+        "close_price": "251300",
+        "low_price": "240400",
+        "volume_sum": "174.15970327017690089",
+        "candle_date": "2017-06-12 00:00",
+        "tick_count": "235"
+      }, {
+        "candle_id": 62743,
+        "open_price": "248250",
+        "hight_price": "248700",
+        "close_price": "240080",
+        "low_price": "240000",
+        "volume_sum": "67.27672166338973482",
+        "candle_date": "2017-06-11 20:00",
+        "tick_count": "170"
+      }, {
+        "candle_id": 62549,
+        "open_price": "239980",
+        "hight_price": "248250",
+        "close_price": "245000",
+        "low_price": "235100",
+        "volume_sum": "41.063368152704447766",
+        "candle_date": "2017-06-11 16:00",
+        "tick_count": "123"
+      }, {
+        "candle_id": 62315,
+        "open_price": "246000",
+        "hight_price": "249590",
+        "close_price": "235100",
+        "low_price": "235100",
+        "volume_sum": "159.212734037196362209",
+        "candle_date": "2017-06-11 12:00",
+        "tick_count": "204"
+      }, {
+        "candle_id": 62240,
+        "open_price": "245000",
+        "hight_price": "247800",
+        "close_price": "245100",
+        "low_price": "244150",
+        "volume_sum": "29.428602397094430995",
+        "candle_date": "2017-06-11 08:00",
+        "tick_count": "27"
+      }, {
+        "candle_id": 62097,
+        "open_price": "247480",
+        "hight_price": "247800",
+        "close_price": "244150",
+        "low_price": "238260",
+        "volume_sum": "44.273230823193428396",
+        "candle_date": "2017-06-11 04:00",
+        "tick_count": "76"
+      }, {
+        "candle_id": 61764,
+        "open_price": "232000",
+        "hight_price": "247490",
+        "close_price": "242600",
+        "low_price": "225500",
+        "volume_sum": "247.308089489164971161",
+        "candle_date": "2017-06-11 00:00",
+        "tick_count": "295"
+      }, {
+        "candle_id": 61175,
+        "open_price": "221000",
+        "hight_price": "249980",
+        "close_price": "232000",
+        "low_price": "216510",
+        "volume_sum": "384.034677718886439658",
+        "candle_date": "2017-06-10 20:00",
+        "tick_count": "388"
+      }, {
+        "candle_id": 60795,
+        "open_price": "208800",
+        "hight_price": "225160",
+        "close_price": "221000",
+        "low_price": "202000",
+        "volume_sum": "366.561151273588692857",
+        "candle_date": "2017-06-10 16:00",
+        "tick_count": "445"
+      }, {
+        "candle_id": 60604,
+        "open_price": "207700",
+        "hight_price": "210000",
+        "close_price": "208800",
+        "low_price": "200200",
+        "volume_sum": "83.623755394677434618",
+        "candle_date": "2017-06-10 12:00",
+        "tick_count": "114"
+      }, {
+        "candle_id": 60567,
+        "open_price": "207500",
+        "hight_price": "209490",
+        "close_price": "207100",
+        "low_price": "207000",
+        "volume_sum": "3.77449612391999618",
+        "candle_date": "2017-06-10 08:00",
+        "tick_count": "11"
+      }, {
+        "candle_id": 60432,
+        "open_price": "199310",
+        "hight_price": "210000",
+        "close_price": "207000",
+        "low_price": "197900",
+        "volume_sum": "58.068900922534440973",
+        "candle_date": "2017-06-10 04:00",
+        "tick_count": "89"
+      }, {
+        "candle_id": 60294,
+        "open_price": "197020",
+        "hight_price": "200000",
+        "close_price": "197900",
+        "low_price": "196500",
+        "volume_sum": "73.416689227349167461",
+        "candle_date": "2017-06-10 00:00",
+        "tick_count": "82"
+      }, {
+        "candle_id": 60077,
+        "open_price": "197560",
+        "hight_price": "198900",
+        "close_price": "197010",
+        "low_price": "195000",
+        "volume_sum": "95.549461846994429644",
+        "candle_date": "2017-06-09 20:00",
+        "tick_count": "127"
+      }, {
+        "candle_id": 59804,
+        "open_price": "194900",
+        "hight_price": "198990",
+        "close_price": "197560",
+        "low_price": "190310",
+        "volume_sum": "250.279195158806001564",
+        "candle_date": "2017-06-09 16:00",
+        "tick_count": "219"
+      }, {
+        "candle_id": 59631,
+        "open_price": "192940",
+        "hight_price": "194900",
+        "close_price": "192500",
+        "low_price": "189000",
+        "volume_sum": "136.868735939768929646",
+        "candle_date": "2017-06-09 12:00",
+        "tick_count": "142"
+      }, {
+        "candle_id": 59597,
+        "open_price": "192950",
+        "hight_price": "192980",
+        "close_price": "189000",
+        "low_price": "189000",
+        "volume_sum": "10.915937387448178306",
+        "candle_date": "2017-06-09 08:00",
+        "tick_count": "5"
+      }, {
+        "candle_id": 59532,
+        "open_price": "191500",
+        "hight_price": "192950",
+        "close_price": "189000",
+        "low_price": "188500",
+        "volume_sum": "26.89257335128576185",
+        "candle_date": "2017-06-09 04:00",
+        "tick_count": "35"
+      }, {
+        "candle_id": 59388,
+        "open_price": "191950",
+        "hight_price": "191950",
+        "close_price": "188500",
+        "low_price": "188500",
+        "volume_sum": "56.83974197352946089",
+        "candle_date": "2017-06-09 00:00",
+        "tick_count": "66"
+      }, {
+        "candle_id": 59164,
+        "open_price": "191300",
+        "hight_price": "192500",
+        "close_price": "190050",
+        "low_price": "187000",
+        "volume_sum": "97.481647418602828423",
+        "candle_date": "2017-06-08 20:00",
+        "tick_count": "178"
+      }, {
+        "candle_id": 58977,
+        "open_price": "189450",
+        "hight_price": "191300",
+        "close_price": "187000",
+        "low_price": "184600",
+        "volume_sum": "64.041347291460968193",
+        "candle_date": "2017-06-08 16:00",
+        "tick_count": "131"
+      }, {
+        "candle_id": 58774,
+        "open_price": "191990",
+        "hight_price": "191990",
+        "close_price": "185000",
+        "low_price": "185000",
+        "volume_sum": "184.842431638127596486",
+        "candle_date": "2017-06-08 12:00",
+        "tick_count": "145"
+      }, {
+        "candle_id": 58680,
+        "open_price": "184500",
+        "hight_price": "191990",
+        "close_price": "187070",
+        "low_price": "184500",
+        "volume_sum": "28.542540830869821922",
+        "candle_date": "2017-06-08 08:00",
+        "tick_count": "48"
+      }, {
+        "candle_id": 58597,
+        "open_price": "182670",
+        "hight_price": "188990",
+        "close_price": "184500",
+        "low_price": "182660",
+        "volume_sum": "30.526280550452121929",
+        "candle_date": "2017-06-08 04:00",
+        "tick_count": "40"
+      }, {
+        "candle_id": 58481,
+        "open_price": "184010",
+        "hight_price": "188980",
+        "close_price": "182660",
+        "low_price": "182100",
+        "volume_sum": "67.942091324655653133",
+        "candle_date": "2017-06-08 00:00",
+        "tick_count": "62"
+      }, {
+        "candle_id": 58244,
+        "open_price": "190000",
+        "hight_price": "193800",
+        "close_price": "184010",
+        "low_price": "184000",
+        "volume_sum": "170.030194197506422327",
+        "candle_date": "2017-06-07 20:00",
+        "tick_count": "168"
+      }, {
+        "candle_id": 57645,
+        "open_price": "191310",
+        "hight_price": "195000",
+        "close_price": "189010",
+        "low_price": "189010",
+        "volume_sum": "318.472687893786852006",
+        "candle_date": "2017-06-07 16:00",
+        "tick_count": "290"
+      }, {
+        "candle_id": 57450,
+        "open_price": "189000",
+        "hight_price": "193000",
+        "close_price": "191300",
+        "low_price": "188870",
+        "volume_sum": "134.660273469766352153",
+        "candle_date": "2017-06-07 12:00",
+        "tick_count": "145"
+      }, {
+        "candle_id": 57432,
+        "open_price": "189000",
+        "hight_price": "189000",
+        "close_price": "188870",
+        "low_price": "188870",
+        "volume_sum": "2.9364005291005291",
+        "candle_date": "2017-06-07 08:00",
+        "tick_count": "8"
+      }, {
+        "candle_id": 57362,
+        "open_price": "187890",
+        "hight_price": "189000",
+        "close_price": "188870",
+        "low_price": "187000",
+        "volume_sum": "51.557033589259799664",
+        "candle_date": "2017-06-07 04:00",
+        "tick_count": "33"
+      }, {
+        "candle_id": 57229,
+        "open_price": "183300",
+        "hight_price": "187900",
+        "close_price": "187000",
+        "low_price": "183300",
+        "volume_sum": "46.990912334668346497",
+        "candle_date": "2017-06-07 00:00",
+        "tick_count": "54"
+      }, {
+        "candle_id": 57039,
+        "open_price": "180500",
+        "hight_price": "186500",
+        "close_price": "183200",
+        "low_price": "180500",
+        "volume_sum": "59.987140676334223468",
+        "candle_date": "2017-06-06 20:00",
+        "tick_count": "121"
+      }, {
+        "candle_id": 56187,
+        "open_price": "185000",
+        "hight_price": "186500",
+        "close_price": "180120",
+        "low_price": "177700",
+        "volume_sum": "154.097254692472704067",
+        "candle_date": "2017-06-06 16:00",
+        "tick_count": "212"
+      }, {
+        "candle_id": 55897,
+        "open_price": "177400",
+        "hight_price": "186050",
+        "close_price": "183650",
+        "low_price": "176500",
+        "volume_sum": "242.175276196019493234",
+        "candle_date": "2017-06-06 12:00",
+        "tick_count": "254"
+      }, {
+        "candle_id": 55853,
+        "open_price": "179000",
+        "hight_price": "179100",
+        "close_price": "177260",
+        "low_price": "177000",
+        "volume_sum": "20.700385449469570072",
+        "candle_date": "2017-06-06 08:00",
+        "tick_count": "20"
+      }, {
+        "candle_id": 55805,
+        "open_price": "179000",
+        "hight_price": "179000",
+        "close_price": "177000",
+        "low_price": "175500",
+        "volume_sum": "21.302526525139664804",
+        "candle_date": "2017-06-06 04:00",
+        "tick_count": "20"
+      }, {
+        "candle_id": 55693,
+        "open_price": "177690",
+        "hight_price": "179000",
+        "close_price": "178900",
+        "low_price": "175020",
+        "volume_sum": "49.862975542815473375",
+        "candle_date": "2017-06-06 00:00",
+        "tick_count": "59"
+      }, {
+        "candle_id": 55520,
+        "open_price": "176990",
+        "hight_price": "177900",
+        "close_price": "177600",
+        "low_price": "175000",
+        "volume_sum": "99.24491661519481388",
+        "candle_date": "2017-06-05 20:00",
+        "tick_count": "107"
+      }, {
+        "candle_id": 55371,
+        "open_price": "174690",
+        "hight_price": "177000",
+        "close_price": "175020",
+        "low_price": "173600",
+        "volume_sum": "97.557459460246299117",
+        "candle_date": "2017-06-05 16:00",
+        "tick_count": "79"
+      }, {
+        "candle_id": 55188,
+        "open_price": "172450",
+        "hight_price": "176580",
+        "close_price": "174100",
+        "low_price": "172450",
+        "volume_sum": "42.354597167328186114",
+        "candle_date": "2017-06-05 12:00",
+        "tick_count": "78"
+      }, {
+        "candle_id": 55149,
+        "open_price": "172500",
+        "hight_price": "176580",
+        "close_price": "172500",
+        "low_price": "172500",
+        "volume_sum": "14.233356178502661682",
+        "candle_date": "2017-06-05 08:00",
+        "tick_count": "14"
+      }, {
+        "candle_id": 55089,
+        "open_price": "176870",
+        "hight_price": "176980",
+        "close_price": "172430",
+        "low_price": "172410",
+        "volume_sum": "14.251186624475568182",
+        "candle_date": "2017-06-05 04:00",
+        "tick_count": "20"
+      }, {
+        "candle_id": 54946,
+        "open_price": "174500",
+        "hight_price": "176950",
+        "close_price": "172410",
+        "low_price": "171100",
+        "volume_sum": "62.543666799006820206",
+        "candle_date": "2017-06-05 00:00",
+        "tick_count": "69"
+      }, {
+        "candle_id": 54824,
+        "open_price": "175680",
+        "hight_price": "176930",
+        "close_price": "172000",
+        "low_price": "168000",
+        "volume_sum": "66.250038309022758385",
+        "candle_date": "2017-06-04 20:00",
+        "tick_count": "88"
+      }, {
+        "candle_id": 54667,
+        "open_price": "170000",
+        "hight_price": "175800",
+        "close_price": "173000",
+        "low_price": "170000",
+        "volume_sum": "98.976414116278779947",
+        "candle_date": "2017-06-04 16:00",
+        "tick_count": "80"
+      }, {
+        "candle_id": 54520,
+        "open_price": "166000",
+        "hight_price": "174000",
+        "close_price": "169900",
+        "low_price": "164000",
+        "volume_sum": "163.287556760448138746",
+        "candle_date": "2017-06-04 12:00",
+        "tick_count": "119"
+      }, {
+        "candle_id": 54493,
+        "open_price": "167300",
+        "hight_price": "167300",
+        "close_price": "164100",
+        "low_price": "164000",
+        "volume_sum": "4.928191625377643495",
+        "candle_date": "2017-06-04 08:00",
+        "tick_count": "10"
+      }, {
+        "candle_id": 54455,
+        "open_price": "163000",
+        "hight_price": "167310",
+        "close_price": "166610",
+        "low_price": "163000",
+        "volume_sum": "26.72604380585778774",
+        "candle_date": "2017-06-04 04:00",
+        "tick_count": "23"
+      }, {
+        "candle_id": 54397,
+        "open_price": "163000",
+        "hight_price": "165500",
+        "close_price": "162000",
+        "low_price": "159030",
+        "volume_sum": "37.126096289357954991",
+        "candle_date": "2017-06-04 00:00",
+        "tick_count": "44"
+      }, {
+        "candle_id": 54317,
+        "open_price": "159880",
+        "hight_price": "163950",
+        "close_price": "163000",
+        "low_price": "159000",
+        "volume_sum": "14.520803275039734788",
+        "candle_date": "2017-06-03 20:00",
+        "tick_count": "37"
+      }, {
+        "candle_id": 54211,
+        "open_price": "162000",
+        "hight_price": "164400",
+        "close_price": "159000",
+        "low_price": "159000",
+        "volume_sum": "152.43151464517009668",
+        "candle_date": "2017-06-03 16:00",
+        "tick_count": "73"
+      }, {
+        "candle_id": 54169,
+        "open_price": "162980",
+        "hight_price": "162990",
+        "close_price": "161000",
+        "low_price": "161000",
+        "volume_sum": "22.073815045231132106",
+        "candle_date": "2017-06-03 12:00",
+        "tick_count": "31"
+      }, {
+        "candle_id": 54143,
+        "open_price": "161150",
+        "hight_price": "162990",
+        "close_price": "161150",
+        "low_price": "161150",
+        "volume_sum": "0.806767286336585066",
+        "candle_date": "2017-06-03 04:00",
+        "tick_count": "5"
+      }, {
+        "candle_id": 54082,
+        "open_price": "161130",
+        "hight_price": "164400",
+        "close_price": "162000",
+        "low_price": "161130",
+        "volume_sum": "9.462297132778286067",
+        "candle_date": "2017-06-03 00:00",
+        "tick_count": "23"
+      }, {
+        "candle_id": 53978,
+        "open_price": "161610",
+        "hight_price": "165500",
+        "close_price": "161120",
+        "low_price": "161120",
+        "volume_sum": "56.222603484824353216",
+        "candle_date": "2017-06-02 20:00",
+        "tick_count": "60"
+      }, {
+        "candle_id": 53809,
+        "open_price": "162280",
+        "hight_price": "165500",
+        "close_price": "161610",
+        "low_price": "161610",
+        "volume_sum": "73.342765371915287013",
+        "candle_date": "2017-06-02 16:00",
+        "tick_count": "109"
+      }, {
+        "candle_id": 53687,
+        "open_price": "162300",
+        "hight_price": "167900",
+        "close_price": "162260",
+        "low_price": "162200",
+        "volume_sum": "31.743478561057661781",
+        "candle_date": "2017-06-02 12:00",
+        "tick_count": "57"
+      }, {
+        "candle_id": 53674,
+        "open_price": "162180",
+        "hight_price": "162200",
+        "close_price": "162200",
+        "low_price": "162180",
+        "volume_sum": "0",
+        "candle_date": "2017-06-02 08:00",
+        "tick_count": "3"
+      }, {
+        "candle_id": 53576,
+        "open_price": "162000",
+        "hight_price": "170000",
+        "close_price": "162170",
+        "low_price": "162000",
+        "volume_sum": "58.43786787579223582",
+        "candle_date": "2017-06-02 04:00",
+        "tick_count": "86"
+      }, {
+        "candle_id": 53409,
+        "open_price": "168140",
+        "hight_price": "168400",
+        "close_price": "162010",
+        "low_price": "161520",
+        "volume_sum": "92.845252016183786263",
+        "candle_date": "2017-06-02 00:00",
+        "tick_count": "125"
+      }, {
+        "candle_id": 53248,
+        "open_price": "166000",
+        "hight_price": "168500",
+        "close_price": "166000",
+        "low_price": "161100",
+        "volume_sum": "54.117314093489369161",
+        "candle_date": "2017-06-01 20:00",
+        "tick_count": "104"
+      }, {
+        "candle_id": 52971,
+        "open_price": "162000",
+        "hight_price": "169980",
+        "close_price": "164630",
+        "low_price": "160610",
+        "volume_sum": "83.762398359800333778",
+        "candle_date": "2017-06-01 16:00",
+        "tick_count": "208"
+      }, {
+        "candle_id": 52727,
+        "open_price": "170000",
+        "hight_price": "172900",
+        "close_price": "161570",
+        "low_price": "161500",
+        "volume_sum": "170.285024644014665417",
+        "candle_date": "2017-06-01 12:00",
+        "tick_count": "173"
+      }, {
+        "candle_id": 52676,
+        "open_price": "169630",
+        "hight_price": "173450",
+        "close_price": "168800",
+        "low_price": "168500",
+        "volume_sum": "18.832152231220015635",
+        "candle_date": "2017-06-01 08:00",
+        "tick_count": "24"
+      }, {
+        "candle_id": 52631,
+        "open_price": "169610",
+        "hight_price": "172900",
+        "close_price": "169620",
+        "low_price": "169610",
+        "volume_sum": "3.161280584152689415",
+        "candle_date": "2017-06-01 04:00",
+        "tick_count": "13"
+      }, {
+        "candle_id": 52477,
+        "open_price": "171500",
+        "hight_price": "173950",
+        "close_price": "169610",
+        "low_price": "168500",
+        "volume_sum": "65.439828902529119449",
+        "candle_date": "2017-06-01 00:00",
+        "tick_count": "77"
+      }, {
+        "candle_id": 52275,
+        "open_price": "166000",
+        "hight_price": "173580",
+        "close_price": "168500",
+        "low_price": "165950",
+        "volume_sum": "125.330515015601770862",
+        "candle_date": "2017-05-31 20:00",
+        "tick_count": "135"
+      }, {
+        "candle_id": 52007,
+        "open_price": "169700",
+        "hight_price": "173840",
+        "close_price": "166000",
+        "low_price": "160000",
+        "volume_sum": "182.807038374716080387",
+        "candle_date": "2017-05-31 16:00",
+        "tick_count": "221"
+      }, {
+        "candle_id": 51757,
+        "open_price": "163000",
+        "hight_price": "174000",
+        "close_price": "165040",
+        "low_price": "160040",
+        "volume_sum": "104.969318125351378209",
+        "candle_date": "2017-05-31 12:00",
+        "tick_count": "184"
+      }, {
+        "candle_id": 51667,
+        "open_price": "155020",
+        "hight_price": "173990",
+        "close_price": "162010",
+        "low_price": "155020",
+        "volume_sum": "19.719508621185125581",
+        "candle_date": "2017-05-31 08:00",
+        "tick_count": "47"
+      }, {
+        "candle_id": 51521,
+        "open_price": "173000",
+        "hight_price": "175000",
+        "close_price": "155020",
+        "low_price": "155000",
+        "volume_sum": "64.958601995045417008",
+        "candle_date": "2017-05-31 04:00",
+        "tick_count": "109"
+      }, {
+        "candle_id": 51252,
+        "open_price": "173000",
+        "hight_price": "175000",
+        "close_price": "173000",
+        "low_price": "170000",
+        "volume_sum": "124.859693935478424412",
+        "candle_date": "2017-05-31 00:00",
+        "tick_count": "201"
+      }, {
+        "candle_id": 50897,
+        "open_price": "168000",
+        "hight_price": "174800",
+        "close_price": "172000",
+        "low_price": "140000",
+        "volume_sum": "276.734702062433801467",
+        "candle_date": "2017-05-30 20:00",
+        "tick_count": "380"
+      }, {
+        "candle_id": 50577,
+        "open_price": "167990",
+        "hight_price": "169800",
+        "close_price": "163460",
+        "low_price": "140000",
+        "volume_sum": "206.194661558119334121",
+        "candle_date": "2017-05-30 16:00",
+        "tick_count": "347"
+      }, {
+        "candle_id": 50292,
+        "open_price": "159990",
+        "hight_price": "169800",
+        "close_price": "156040",
+        "low_price": "150900",
+        "volume_sum": "141.332481862040751641",
+        "candle_date": "2017-05-30 12:00",
+        "tick_count": "231"
+      }, {
+        "candle_id": 50252,
+        "open_price": "155500",
+        "hight_price": "159990",
+        "close_price": "156250",
+        "low_price": "155500",
+        "volume_sum": "11.535158057424766694",
+        "candle_date": "2017-05-30 08:00",
+        "tick_count": "15"
+      }, {
+        "candle_id": 50150,
+        "open_price": "156120",
+        "hight_price": "159980",
+        "close_price": "155500",
+        "low_price": "155000",
+        "volume_sum": "47.895264506166234224",
+        "candle_date": "2017-05-30 04:00",
+        "tick_count": "72"
+      }, {
+        "candle_id": 49957,
+        "open_price": "158840",
+        "hight_price": "159740",
+        "close_price": "155120",
+        "low_price": "146000",
+        "volume_sum": "73.329280082302228396",
+        "candle_date": "2017-05-30 00:00",
+        "tick_count": "165"
+      }, {
+        "candle_id": 49698,
+        "open_price": "145500",
+        "hight_price": "159800",
+        "close_price": "157000",
+        "low_price": "144900",
+        "volume_sum": "101.814532569715460056",
+        "candle_date": "2017-05-29 20:00",
+        "tick_count": "177"
+      }, {
+        "candle_id": 49523,
+        "open_price": "146900",
+        "hight_price": "150000",
+        "close_price": "145500",
+        "low_price": "145000",
+        "volume_sum": "116.275485475350189438",
+        "candle_date": "2017-05-29 16:00",
+        "tick_count": "124"
+      }, {
+        "candle_id": 49348,
+        "open_price": "138000",
+        "hight_price": "147990",
+        "close_price": "146910",
+        "low_price": "138000",
+        "volume_sum": "79.429595863066114587",
+        "candle_date": "2017-05-29 12:00",
+        "tick_count": "104"
+      }, {
+        "candle_id": 49316,
+        "open_price": "137910",
+        "hight_price": "142990",
+        "close_price": "138010",
+        "low_price": "135110",
+        "volume_sum": "8.813409499001328664",
+        "candle_date": "2017-05-29 08:00",
+        "tick_count": "11"
+      }, {
+        "candle_id": 49259,
+        "open_price": "145490",
+        "hight_price": "145490",
+        "close_price": "135110",
+        "low_price": "135110",
+        "volume_sum": "2.906486755120388862",
+        "candle_date": "2017-05-29 04:00",
+        "tick_count": "14"
+      }, {
+        "candle_id": 49139,
+        "open_price": "143000",
+        "hight_price": "149500",
+        "close_price": "135110",
+        "low_price": "135100",
+        "volume_sum": "24.404797081908719053",
+        "candle_date": "2017-05-29 00:00",
+        "tick_count": "58"
+      }, {
+        "candle_id": 48849,
+        "open_price": "135000",
+        "hight_price": "148300",
+        "close_price": "143000",
+        "low_price": "131000",
+        "volume_sum": "101.564348453373605235",
+        "candle_date": "2017-05-28 20:00",
+        "tick_count": "93"
+      }, {
+        "candle_id": 48765,
+        "open_price": "128520",
+        "hight_price": "142500",
+        "close_price": "135000",
+        "low_price": "128520",
+        "volume_sum": "4.291693883235935355",
+        "candle_date": "2017-05-28 16:00",
+        "tick_count": "30"
+      }, {
+        "candle_id": 48637,
+        "open_price": "135220",
+        "hight_price": "144500",
+        "close_price": "128510",
+        "low_price": "128000",
+        "volume_sum": "48.812457439446366781",
+        "candle_date": "2017-05-28 12:00",
+        "tick_count": "62"
+      }, {
+        "candle_id": 48593,
+        "open_price": "142000",
+        "hight_price": "144790",
+        "close_price": "135210",
+        "low_price": "135120",
+        "volume_sum": "37.427620631850567626",
+        "candle_date": "2017-05-28 08:00",
+        "tick_count": "22"
+      }, {
+        "candle_id": 48487,
+        "open_price": "132000",
+        "hight_price": "142500",
+        "close_price": "135130",
+        "low_price": "132000",
+        "volume_sum": "56.764538476956252195",
+        "candle_date": "2017-05-28 04:00",
+        "tick_count": "46"
+      }, {
+        "candle_id": 48339,
+        "open_price": "120000",
+        "hight_price": "135000",
+        "close_price": "129000",
+        "low_price": "120000",
+        "volume_sum": "31.200606599478942172",
+        "candle_date": "2017-05-28 00:00",
+        "tick_count": "97"
+      }, {
+        "candle_id": 48107,
+        "open_price": "134000",
+        "hight_price": "149890",
+        "close_price": "120000",
+        "low_price": "118010",
+        "volume_sum": "104.385953789418597315",
+        "candle_date": "2017-05-27 20:00",
+        "tick_count": "130"
+      }, {
+        "candle_id": 47880,
+        "open_price": "127100",
+        "hight_price": "149900",
+        "close_price": "133000",
+        "low_price": "125000",
+        "volume_sum": "101.447592368092607689",
+        "candle_date": "2017-05-27 16:00",
+        "tick_count": "163"
+      }, {
+        "candle_id": 47660,
+        "open_price": "96000",
+        "hight_price": "149880",
+        "close_price": "127100",
+        "low_price": "96000",
+        "volume_sum": "45.670131805317794815",
+        "candle_date": "2017-05-27 12:00",
+        "tick_count": "134"
+      }, {
+        "candle_id": 47503,
+        "open_price": "105000",
+        "hight_price": "139000",
+        "close_price": "95410",
+        "low_price": "95000",
+        "volume_sum": "54.013701079136690647",
+        "candle_date": "2017-05-27 08:00",
+        "tick_count": "87"
+      }, {
+        "candle_id": 47377,
+        "open_price": "130000",
+        "hight_price": "139990",
+        "close_price": "101010",
+        "low_price": "101010",
+        "volume_sum": "66.183099450387346506",
+        "candle_date": "2017-05-27 04:00",
+        "tick_count": "93"
+      }, {
+        "candle_id": 47208,
+        "open_price": "147000",
+        "hight_price": "147000",
+        "close_price": "130000",
+        "low_price": "130000",
+        "volume_sum": "48.549532698434465103",
+        "candle_date": "2017-05-27 00:00",
+        "tick_count": "83"
+      }, {
+        "candle_id": 46138,
+        "open_price": "135000",
+        "hight_price": "157000",
+        "close_price": "135590",
+        "low_price": "134990",
+        "volume_sum": "130.643102199873046631",
+        "candle_date": "2017-05-26 20:00",
+        "tick_count": "208"
+      }, {
+        "candle_id": 39405,
+        "open_price": "160000",
+        "hight_price": "165000",
+        "close_price": "134990",
+        "low_price": "134800",
+        "volume_sum": "372.192714166295970629",
+        "candle_date": "2017-05-26 16:00",
+        "tick_count": "331"
+      }, {
+        "candle_id": 39137,
+        "open_price": "170000",
+        "hight_price": "179990",
+        "close_price": "159610",
+        "low_price": "158000",
+        "volume_sum": "168.701592282914300398",
+        "candle_date": "2017-05-26 12:00",
+        "tick_count": "168"
+      }, {
+        "candle_id": 39047,
+        "open_price": "165000",
+        "hight_price": "174000",
+        "close_price": "170000",
+        "low_price": "158110",
+        "volume_sum": "35.632225287356321839",
+        "candle_date": "2017-05-26 08:00",
+        "tick_count": "43"
+      }, {
+        "candle_id": 38942,
+        "open_price": "163000",
+        "hight_price": "164500",
+        "close_price": "158120",
+        "low_price": "158000",
+        "volume_sum": "30.787434175995255388",
+        "candle_date": "2017-05-26 04:00",
+        "tick_count": "43"
+      }, {
+        "candle_id": 38696,
+        "open_price": "164970",
+        "hight_price": "167890",
+        "close_price": "159000",
+        "low_price": "154890",
+        "volume_sum": "124.448583461781488884",
+        "candle_date": "2017-05-26 00:00",
+        "tick_count": "158"
+      }, {
+        "candle_id": 38286,
+        "open_price": "156500",
+        "hight_price": "179490",
+        "close_price": "155000",
+        "low_price": "150000",
+        "volume_sum": "337.24851050213101521",
+        "candle_date": "2017-05-25 20:00",
+        "tick_count": "366"
+      }, {
+        "candle_id": 31466,
+        "open_price": "189890",
+        "hight_price": "192870",
+        "close_price": "156500",
+        "low_price": "155010",
+        "volume_sum": "320.222423413259304262",
+        "candle_date": "2017-05-25 16:00",
+        "tick_count": "329"
+      }, {
+        "candle_id": 31111,
+        "open_price": "174500",
+        "hight_price": "192930",
+        "close_price": "186010",
+        "low_price": "163510",
+        "volume_sum": "288.842016863955216593",
+        "candle_date": "2017-05-25 12:00",
+        "tick_count": "314"
+      }, {
+        "candle_id": 30982,
+        "open_price": "150310",
+        "hight_price": "174900",
+        "close_price": "163510",
+        "low_price": "150310",
+        "volume_sum": "46.185461063464837047",
+        "candle_date": "2017-05-25 08:00",
+        "tick_count": "67"
+      }, {
+        "candle_id": 30682,
+        "open_price": "183560",
+        "hight_price": "192930",
+        "close_price": "150300",
+        "low_price": "145000",
+        "volume_sum": "244.912307689289190638",
+        "candle_date": "2017-05-25 04:00",
+        "tick_count": "323"
+      }, {
+        "candle_id": 30372,
+        "open_price": "180050",
+        "hight_price": "188440",
+        "close_price": "183550",
+        "low_price": "175200",
+        "volume_sum": "199.213435026492933261",
+        "candle_date": "2017-05-25 00:00",
+        "tick_count": "246"
+      }, {
+        "candle_id": 29992,
+        "open_price": "172000",
+        "hight_price": "184900",
+        "close_price": "180050",
+        "low_price": "168000",
+        "volume_sum": "302.41028215101547757",
+        "candle_date": "2017-05-24 20:00",
+        "tick_count": "390"
+      }, {
+        "candle_id": 27676,
+        "open_price": "163990",
+        "hight_price": "173990",
+        "close_price": "168000",
+        "low_price": "160000",
+        "volume_sum": "345.525161724781301241",
+        "candle_date": "2017-05-24 16:00",
+        "tick_count": "419"
+      }, {
+        "candle_id": 27320,
+        "open_price": "141000",
+        "hight_price": "164500",
+        "close_price": "163000",
+        "low_price": "141000",
+        "volume_sum": "351.410138059613137637",
+        "candle_date": "2017-05-24 12:00",
+        "tick_count": "364"
+      }],
+      "type": "BID",
+      "timeframe": "240"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "ether",
+  "version": "1.0.0",
+  "description": "Ether information to make better decissions regarding ether investment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psaratscheff/ether-info.git"
+  },
+  "keywords": [
+    "ether"
+  ],
+  "author": "Pedro Saratscheff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/psaratscheff/ether-info/issues"
+  },
+  "homepage": "https://github.com/psaratscheff/ether-info#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "fs": "0.0.1-security",
+    "mongoose": "^4.11.3",
+    "morgan": "^1.8.2",
+    "node-cron": "^1.2.0",
+    "node-telegram-bot-api": "^0.27.1",
+    "request": "^2.81.0"
+  }
+}
