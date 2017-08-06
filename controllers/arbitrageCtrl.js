@@ -79,7 +79,7 @@ function arbitrage_calc_message(ask, bid, usd_clp, int_price) {
   if ((calc = bid - usd_clp*int_price) > 0) {
     result_message = "Arbitrage: *" + calc + "* (Buy in USD, sell in CLP)";
   } else if ((calc = usd_clp*int_price - ask) > 0) {
-    result_message = "Arbitrage: *" + calc + "* (Buy in USD, sell in CLP)";
+    result_message = "Arbitrage: *" + calc + "* (Buy in CLP, sell in USD)";
   } else {
     result_message = "Arbitrage: *" + 0 + "* (No arbitrage opportunity)";
   }
