@@ -27,26 +27,26 @@ function eth_prices(callback) {
     });
   }
 
-  valid_request('CRYPTOMKT', 'https://www.cryptomkt.com/api/ethclp/240.json', function (body) {
+  valid_request('cryptomkt.com', 'https://www.cryptomkt.com/api/ethclp/240.json', function (body) {
     cryptomkt_ask = body['data']['prices_ask']['values'][0]['close_price'];
     cryptomkt_bid = body['data']['prices_bid']['values'][0]['close_price'];
     cryptomkt = ['CRYPTOMKT', cryptomkt_ask, cryptomkt_bid];
     render_data();
   });
 
-  valid_request('SURBTC', 'https://www.surbtc.com/api/v2/markets/ETH-CLP/ticker', function (body) {
+  valid_request('surbtc.com', 'https://www.surbtc.com/api/v2/markets/ETH-CLP/ticker', function (body) {
     surbtc_ask = body['ticker']['min_ask'][0];
     surbtc_bid = body['ticker']['max_bid'][0];
     surbtc = ['SURBTC', surbtc_ask, surbtc_bid];
     render_data();
   });
 
-  valid_request('ethereumprice', 'https://ethereumprice.org/wp-content/themes/theme/inc/exchanges/price-data.php?coin=eth&cur=ethusd&ex=waex', function (body) {
+  valid_request('ethereumprice.org', 'https://ethereumprice.org/wp-content/themes/theme/inc/exchanges/price-data.php?coin=eth&cur=ethusd&ex=waex', function (body) {
     international_price = body['current_price'];
     render_data();
   });
 
-  valid_request('mindicador(CLP/USD)', 'http://mindicador.cl/api/dolar', function (body) {
+  valid_request('mindicador.cl', 'http://mindicador.cl/api/dolar', function (body) {
     usd_clp = body['serie'][0]['valor'];
     render_data();
   });
