@@ -1,64 +1,61 @@
 // controllers/arbitrageCtrl.js
-
 function eth_prices(callback) {
-  var request = require('request');
-  var cryptomkt_ask;
-  var cryptomkt_bid;
+  // exchange[name, ASK, BID]
+  var cryptomkt;
+  var surbtc;
   var international_price;
+  var usd_clp;
 
-  request('https://www.cryptomkt.com/api/ethclp/240.json', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      body = JSON.parse(body);
-      // TODO: Price considering 1ETH offered in total
-      cryptomkt_ask = body['data']['prices_ask']['values'][0]['close_price'];
-      cryptomkt_bid = body['data']['prices_bid']['values'][0]['close_price'];
+  var got_error = false;
 
-      request('https://www.surbtc.com/api/v2/markets/ETH-CLP/ticker', function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-          body = JSON.parse(body);
-          // TODO: Price considering 1ETH offered in total
-          surbtc_ask = body['ticker']['min_ask'][0];
-          surbtc_bid = body['ticker']['max_bid'][0];
+  function valid_request(name, url, process_callback) {
+    var request = require('request');
 
-          request('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=ETH,USD', function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-              body = JSON.parse(body);
-              // TODO: Price in LYKKE market
-              international_price = body['USD'];
+    request(url, function (error, response, body) {
+      if (got_error) {
+        // Stop...
+      } else if (!error && response.statusCode == 200) {
+        body = JSON.parse(body);
+        process_callback(body);
+      } else if (error){
+        got_error = true;
+        callback('ERROR requesting to ' + name + '. Error_message =>' + error, null, null, null, null, null, null);
+      } else {
+        got_error = true;
+        callback('ERROR requesting to ' + name + '. Status code => ' + response.statusCode, null, null, null, null, null, null);
+      }
+    });
+  }
 
-              request('http://mindicador.cl/api/dolar', function (error, response, body) {
-                if (!error && response.statusCode == 200) {
-                  body = JSON.parse(body);
-                  // TODO: Price in BancoChile
-                  usd_clp = body['serie'][0]['valor'];
-
-                  callback(false, cryptomkt_ask, cryptomkt_bid, surbtc_ask, surbtc_bid, international_price, usd_clp);
-
-
-                } else if (error){
-                  callback(error, null, null, null, null);
-                } else {
-                  callback('ERROR: Status code: ' + response.statusCode, null, null, null, null, null, null);
-                }
-              });
-            } else if (error){
-              callback(error, null, null, null, null);
-            } else {
-              callback('ERROR: Status code: ' + response.statusCode, null, null, null, null, null, null);
-            }
-          });
-        } else if (error){
-          callback(error, null, null, null, null);
-        } else {
-          callback('ERROR: Status code: ' + response.statusCode, null, null, null, null, null, null);
-        }
-      });
-    } else if (error){
-      callback(error, null, null, null, null);
-    } else {
-      callback('ERROR: Status code: ' + response.statusCode, null, null, null, null, null, null);
-    }
+  valid_request('CRYPTOMKT', 'https://www.cryptomkt.com/api/ethclp/240.json', function (body) {
+    cryptomkt_ask = body['data']['prices_ask']['values'][0]['close_price'];
+    cryptomkt_bid = body['data']['prices_bid']['values'][0]['close_price'];
+    cryptomkt = ['CRYPTOMKT', cryptomkt_ask, cryptomkt_bid];
+    render_data();
   });
+
+  valid_request('SURBTC', 'https://www.surbtc.com/api/v2/markets/ETH-CLP/ticker', function (body) {
+    surbtc_ask = body['ticker']['min_ask'][0];
+    surbtc_bid = body['ticker']['max_bid'][0];
+    surbtc = ['SURBTC', surbtc_ask, surbtc_bid];
+    render_data();
+  });
+
+  valid_request('ethereumprice', 'https://ethereumprice.org/wp-content/themes/theme/inc/exchanges/price-data.php?coin=eth&cur=ethusd&ex=waex', function (body) {
+    international_price = body['current_price'];
+    render_data();
+  });
+
+  valid_request('mindicador(CLP/USD)', 'http://mindicador.cl/api/dolar', function (body) {
+    usd_clp = body['serie'][0]['valor'];
+    render_data();
+  });
+
+  function render_data() {
+    if (cryptomkt && surbtc && international_price && usd_clp) {
+      callback(false, cryptomkt[1], cryptomkt[2], surbtc[1], surbtc[2], international_price, usd_clp);
+    }
+  }
 }
 
 function arbitrage_calc(ask, bid, usd_clp, int_price) {
