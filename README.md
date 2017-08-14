@@ -5,14 +5,31 @@ Runs on a server with cron jobs and accepting commands through telegram as well 
 ## Getting Started
 
 1. Clone the repository
-2. Set optional environment variables
+2. Create a mongo user with readWrite permissions
+For test environment:
+```
+use test
+var user = {
+  "user" : "test",
+  "pwd" : "test",
+  roles : [
+      {
+          "role" : "readWrite",
+          "db" : "test"
+      }
+  ]
+}
+db.createUser(user);
+```
+For production environment use a database called `ether` instead.
+3. Set optional environment variables
 * production_server=true/false
 * telegram_api_key=YOUR_BOT_API_KEY
 * etherscan_api_key=YOUR_ETHERSCAN_API_KEY
 * mongo_username=YOUR_USERNAME
 * mongo_password=YOUR_PASSWORD
-3. Install dependencies `npm install`
-4. Run the main script `node index.js`
+4. Install dependencies `npm install`
+5. Run the main script `node index.js`
 
 ### Prerequisites
 Having Git, NodeJS and npm installed.
