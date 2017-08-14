@@ -11,7 +11,6 @@ var TelegramBot = require('node-telegram-bot-api'),
     telegram = new TelegramBot(api_key, { polling: true });
 
 function arbitrage_alerts(value, answer) {
-  console.log(answer);
   helpers.iterate_users(function(user) {
     if (user.arbitrage_minimum_alert && (user.arbitrage_minimum_alert < value || value < -user.arbitrage_minimum_alert)) {
       telegram.sendMessage(user._id, answer, {
@@ -81,7 +80,6 @@ function process_message(user, message) {
         answer += arbitrageCtrl.arbitrage_calc_message(surbtc_ask, surbtc_bid, usd_clp, int_price) + "\n";
         answer += "Ask: " + surbtc_ask + "\n";
         answer += "Bid: " + surbtc_bid + "\n";
-        console.log(answer);
         telegram.sendMessage(message.chat.id, answer, {
           parse_mode: "Markdown"
         });
@@ -99,7 +97,6 @@ function process_message(user, message) {
         if (error) {
           telegram.sendMessage(message.chat.id, "ERROR on MinerStatus: " + error);
         } else {
-          console.log(answer);
           telegram.sendMessage(message.chat.id, answer, {
             parse_mode: "Markdown"
           });
