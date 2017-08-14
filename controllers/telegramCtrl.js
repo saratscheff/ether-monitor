@@ -57,7 +57,7 @@ function process_message(user, message) {
     // ================================Ether Status=============================
     if(message.text.toLowerCase().indexOf("/ether") === 0) {
       var tries = 3;
-      function show_arbitrage(error, crypto_ask, crypto_bid, surbtc_ask, surbtc_bid, int_price, usd_clp){
+      function show_arbitrage(error, usd_clp, int_price, exchanges){
         if (error && tries > 0) {
           tries--;
           telegram.sendMessage(message.chat.id, "Too many requests, retrying in 10 seconds...");
@@ -69,17 +69,20 @@ function process_message(user, message) {
         }
         var answer = "";
         answer += "*INTERNATIONAL*\n";
-        answer += "Ether Price in USD: " + int_price + "\n";
-        answer += "USD Price in CLP: " + usd_clp + "\n";
-        answer += "Ether Price in CLP: " + usd_clp*int_price + "\n";
-        answer += "*CRYPTOMKT*\n";
-        answer += arbitrageCtrl.arbitrage_calc_message(crypto_ask, crypto_bid, usd_clp, int_price) + "\n";
-        answer += "Ask: " + crypto_ask + "\n";
-        answer += "Bid: " + crypto_bid + "\n";
-        answer += "*SURBTC*\n";
-        answer += arbitrageCtrl.arbitrage_calc_message(surbtc_ask, surbtc_bid, usd_clp, int_price) + "\n";
-        answer += "Ask: " + surbtc_ask + "\n";
-        answer += "Bid: " + surbtc_bid + "\n";
+        answer += "Ether Price in USD: " + int_price.toFixed(2) + "\n";
+        answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
+        answer += "Ether Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
+        exchanges.forEach(function(exchange) {
+          answer += "*" + exchange[0] + "*\n";
+          if (exchange[3] === 'USD') {
+            answer += "Ask: " + exchange[1].toFixed(2) + "(" + (exchange[1]*usd_clp).toFixed(1) + ")\n";
+            answer += "Bid: " + exchange[2].toFixed(2) + "(" + (exchange[2]*usd_clp).toFixed(1) + ")\n";
+          } else {
+            answer += "Ask: " + exchange[1].toFixed(2) + "\n";
+            answer += "Bid: " + exchange[2].toFixed(2) + "\n";
+          }
+        });
+        answer += arbitrageCtrl.arbitrage_calc_message(exchanges, usd_clp) + "\n";
         telegram.sendMessage(message.chat.id, answer, {
           parse_mode: "Markdown"
         });

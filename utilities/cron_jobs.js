@@ -15,27 +15,21 @@ var helpers       = require(__dirname + '/helpers.js');
 // =============================================================================
 
 cron.schedule('*/2 * * * *', function(){
-  function check_arbitrage(error, crypto_ask, crypto_bid, surbtc_ask, surbtc_bid, int_price, usd_clp){
-    var file_crypto = public_path + '/crypto_arbitrage.txt';
-    var file_surbtc = public_path + '/surbtc_arbitrage.txt';
+  function check_arbitrage(error, usd_clp, international_price, exchanges){
+    var file = public_path + '/arbitrages.txt';
     var datetime = '[' + (new Date()).toLocaleString() + '] ';
     if (error){
       console.log('error while cron calculating arbitrage: ' + error);
     } else {
-      var crypto_arbitrage_arr = arbitrageCtrl.arbitrage_calc(crypto_ask, crypto_bid, usd_clp, int_price);
-      var text = datetime + " // " + crypto_arbitrage_arr[0] +" // " + crypto_arbitrage_arr[1] + '\n';
-      fs.appendFile(file_crypto, text, function (err) {
-          if (err) return console.log(err);
+      var arbitrage = arbitrageCtrl.arbitrage_calc(exchanges, usd_clp);
+      arbitrage.forEach(function(arbitrage_opportunity) {
+        var text = datetime + " // " + arbitrage_opportunity[0] +" // " + arbitrage_opportunity[1] + '\n';
+        fs.appendFile(file, text, function (err) {
+            if (err) return console.log(err);
+        });
+        //========================= TELEGRAM ALERT ==============================
+        telegramCtrl.arbitrage_alerts(arbitrage_opportunity[0], "ARBITRAGE: *" + parseFloat(arbitrage_opportunity[0]).toFixed(1) + '*\n(' + arbitrage_opportunity[1] + ')');
       });
-      var surbtc_arbitrage_arr = arbitrageCtrl.arbitrage_calc(surbtc_ask, surbtc_bid, usd_clp, int_price);
-      var text = datetime + " // " + surbtc_arbitrage_arr[0] +" // " + surbtc_arbitrage_arr[1] + '\n';
-      fs.appendFile(file_surbtc, text, function (err) {
-          if (err) return console.log(err);
-      });
-
-      //========================= TELEGRAM ALERT ==============================
-      telegramCtrl.arbitrage_alerts(crypto_arbitrage_arr[1], arbitrageCtrl.arbitrage_calc_message(crypto_ask, crypto_bid, usd_clp, int_price) + " at CryptoMkt\n");
-      telegramCtrl.arbitrage_alerts(surbtc_arbitrage_arr[1], arbitrageCtrl.arbitrage_calc_message(surbtc_ask, surbtc_bid, usd_clp, int_price) + " at SURBTC\n");
     }
   }
   arbitrageCtrl.eth_prices(check_arbitrage);
