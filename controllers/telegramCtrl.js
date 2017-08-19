@@ -73,13 +73,13 @@ function process_message(user, message) {
         answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
         answer += "Ether Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
         exchanges.forEach(function(exchange) {
-          answer += "*" + exchange[0] + "*\n";
-          if (exchange[3] === 'USD') {
-            answer += "Ask: " + exchange[1].toFixed(2) + "(" + (exchange[1]*usd_clp).toFixed(1) + ")\n";
-            answer += "Bid: " + exchange[2].toFixed(2) + "(" + (exchange[2]*usd_clp).toFixed(1) + ")\n";
+          answer += "*" + exchange.name + "*\n";
+          if (exchange.boring_currency === 'USD') {
+            answer += "Ask: " + exchange.ask.toFixed(2) + "(" + (exchange.ask*usd_clp).toFixed(1) + ")\n";
+            answer += "Bid: " + exchange.bid.toFixed(2) + "(" + (exchange.bid*usd_clp).toFixed(1) + ")\n";
           } else {
-            answer += "Ask: " + exchange[1].toFixed(2) + "\n";
-            answer += "Bid: " + exchange[2].toFixed(2) + "\n";
+            answer += "Ask: " + exchange.ask.toFixed(2) + "\n";
+            answer += "Bid: " + exchange.bid.toFixed(2) + "\n";
           }
         });
         answer += arbitrageCtrl.arbitrage_calc_message(exchanges, usd_clp) + "\n";
