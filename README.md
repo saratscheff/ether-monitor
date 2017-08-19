@@ -21,7 +21,8 @@ var user = {
 }
 db.createUser(user);
 ```
-For production environment use a database called `ether` instead.
+For production environment use a database called `ether` instead with custom user and password.
+
 3. Set optional environment variables
 * production_server=true/false
 * telegram_api_key=YOUR_BOT_API_KEY
