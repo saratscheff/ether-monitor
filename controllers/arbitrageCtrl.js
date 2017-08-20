@@ -156,6 +156,7 @@ function btc_prices(callback) {
 }
 
 function arbitrage_calc(exchanges, usd_clp) {
+  // TODO: Add market fees
   var result = [];
   exchanges.forEach(function(exchange1) {
     if (exchange1.boring_currency === 'USD') {
