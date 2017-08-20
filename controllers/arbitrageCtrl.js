@@ -82,6 +82,79 @@ function eth_prices(callback) {
   }
 }
 
+function btc_prices(callback) {
+  var usd_clp;
+  var international_price;
+  var exchanges = [null, null, null];
+
+  var got_error = false;
+
+  function valid_request(name, url, process_callback) {
+    var request = require('request');
+
+    request(url, function (error, response, body) {
+      if (got_error) {
+        // Stop...
+      } else if (!error && response.statusCode == 200) {
+        body = JSON.parse(body);
+        process_callback(body);
+      } else if (error){
+        got_error = true;
+        callback('ERROR requesting to ' + name + '. Error_message =>' + error, null, null, null, null, null, null);
+      } else {
+        got_error = true;
+        callback('ERROR requesting to ' + name + '. Status code => ' + response.statusCode, null, null, null, null, null, null);
+      }
+    });
+  }
+
+  // ----------- USD/CLP
+  valid_request('mindicador.cl', 'http://mindicador.cl/api/dolar', function (body) {
+    usd_clp = parseFloat(body['serie'][0]['valor']);
+    process_data();
+  });
+
+  // ----------- BTC international price
+  valid_request('bitcoinaverage.com', 'https://apiv2.bitcoinaverage.com/constants/exchangerates/global', function (body) {
+    international_price = 1/parseFloat(body['rates']['BTC']['rate']);
+    process_data();
+  });
+
+  // ----------- EXCHANGES
+  valid_request('surbtc.com', 'https://www.surbtc.com/api/v2/markets/BTC-CLP/ticker', function (body) {
+    surbtc_ask = parseFloat(body['ticker']['min_ask'][0]);
+    surbtc_bid = parseFloat(body['ticker']['max_bid'][0]);
+    exchanges[0] = new Exchange('SURBTC', surbtc_ask, surbtc_bid, 'CLP');
+    process_data();
+  });
+
+  valid_request('kraken.com', 'https://api.kraken.com/0/public/Ticker?pair=XBTUSD', function (body) {
+    kraken_ask = parseFloat(body['result']['XXBTZUSD']['a'][0]);
+    kraken_bid = parseFloat(body['result']['XXBTZUSD']['b'][0]);
+    exchanges[1] = new Exchange('KRAKEN', kraken_ask, kraken_bid, 'USD');
+    process_data();
+  });
+
+  valid_request('lykke.com', 'https://public-api.lykke.com/api/AssetPairs/rate', function (body) {
+    body.some(function(pair) {
+      if (pair['id'] === 'BTCUSD') {
+        lykke_ask = parseFloat(pair['ask']);
+        lykke_bid = parseFloat(pair['bid']);
+        exchanges[2] = new Exchange('LYKKE', lykke_ask, lykke_bid, 'USD');
+        return true;
+      }
+    });
+    process_data();
+  });
+
+  // ----------- send data when all returned
+  function process_data() {
+    if (usd_clp && international_price && !exchanges.includes(null)) {
+      callback(false, usd_clp, international_price, exchanges);
+    }
+  }
+}
+
 function arbitrage_calc(exchanges, usd_clp) {
   var result = [];
   exchanges.forEach(function(exchange1) {
@@ -119,6 +192,7 @@ function arbitrage_calc_message(exchanges, usd_clp) {
 
 module.exports = {
     eth_prices: eth_prices,
+    btc_prices: btc_prices,
     arbitrage_calc: arbitrage_calc,
     arbitrage_calc_message: arbitrage_calc_message
 };

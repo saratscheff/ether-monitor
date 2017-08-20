@@ -55,7 +55,7 @@ function process_message(user, message) {
   } else {
 
     // ================================Ether Status=============================
-    if(message.text.toLowerCase().indexOf("/ether") === 0) {
+    if(message.text.toLowerCase().indexOf("/eth") === 0 || message.text.toLowerCase().indexOf("/ether") === 0) {
       var tries = 3;
       function show_arbitrage(error, usd_clp, int_price, exchanges){
         if (error && tries > 0) {
@@ -89,8 +89,43 @@ function process_message(user, message) {
       }
       arbitrageCtrl.eth_prices(show_arbitrage);
 
-    // ================================Miner Status=============================
-    } else if (message.text.toLowerCase().indexOf("/miner") === 0) {
+    // ================================BTC Status=============================
+  } else if(message.text.toLowerCase().indexOf("/btc") === 0 || message.text.toLowerCase().indexOf("/bitcoin") === 0) {
+    var tries = 3;
+    function show_arbitrage(error, usd_clp, int_price, exchanges){
+      if (error && tries > 0) {
+        tries--;
+        telegram.sendMessage(message.chat.id, "Too many requests, retrying in 10 seconds...");
+        setTimeout(function() { arbitrageCtrl.btc_prices(show_arbitrage) }, 10000);
+        return;
+      } else if (error) {
+        telegram.sendMessage(message.chat.id, "ERROR on BTCStatus: " + error);
+        return;
+      }
+      var answer = "";
+      answer += "*INTERNATIONAL*\n";
+      answer += "Bitcoin Price in USD: " + int_price.toFixed(2) + "\n";
+      answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
+      answer += "Bitcoin Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
+      exchanges.forEach(function(exchange) {
+        answer += "*" + exchange.name + "*\n";
+        if (exchange.boring_currency === 'USD') {
+          answer += "Ask: " + exchange.ask.toFixed(2) + "(" + (exchange.ask*usd_clp).toFixed(1) + ")\n";
+          answer += "Bid: " + exchange.bid.toFixed(2) + "(" + (exchange.bid*usd_clp).toFixed(1) + ")\n";
+        } else {
+          answer += "Ask: " + exchange.ask.toFixed(2) + "\n";
+          answer += "Bid: " + exchange.bid.toFixed(2) + "\n";
+        }
+      });
+      answer += arbitrageCtrl.arbitrage_calc_message(exchanges, usd_clp) + "\n";
+      telegram.sendMessage(message.chat.id, answer, {
+        parse_mode: "Markdown"
+      });
+    }
+    arbitrageCtrl.btc_prices(show_arbitrage);
+
+  // ================================Miner Status=============================
+  } else if (message.text.toLowerCase().indexOf("/miner") === 0) {
       if (!user.miner_address) {
         telegram.sendMessage(message.chat.id, "No miner address registered. To register one use the command /register_miner_address");
         return;
