@@ -23,12 +23,12 @@ cron.schedule('*/2 * * * *', function(){
     } else {
       var arbitrage = arbitrageCtrl.arbitrage_calc(exchanges, usd_clp);
       arbitrage.forEach(function(arbitrage_opportunity) {
-        var text = datetime + " // " + arbitrage_opportunity[0] +" // " + arbitrage_opportunity[1] + '\n';
+        var text = datetime + " // " + arbitrage_opportunity.amount +" // " + arbitrage_opportunity.direction_message + '\n';
         fs.appendFile(file, text, function (err) {
             if (err) return console.log(err);
         });
         //========================= TELEGRAM ALERT ==============================
-        telegramCtrl.arbitrage_alerts(arbitrage_opportunity[0], "ARBITRAGE: *" + parseFloat(arbitrage_opportunity[0]).toFixed(1) + '*\n(' + arbitrage_opportunity[1] + ')');
+        telegramCtrl.arbitrage_alerts(arbitrage_opportunity.amount, "ARBITRAGE: *" + parseFloat(arbitrage_opportunity.amount).toFixed(1) + '*\n(' + arbitrage_opportunity.direction_message + ')');
       });
     }
   }
