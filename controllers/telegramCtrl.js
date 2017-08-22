@@ -95,7 +95,6 @@ function process_message(user, message) {
             answer += "Bid: " + exchange.bid.toFixed(2) + "\n";
           }
         });
-        answer += arbitrageCtrl.arbitrage_calc_message(exchanges, usd_clp) + "\n";
         telegram.sendMessage(message.chat.id, answer, {
           parse_mode: "Markdown"
         });
@@ -130,12 +129,31 @@ function process_message(user, message) {
             answer += "Bid: " + exchange.bid.toFixed(2) + "\n";
           }
         });
-        answer += arbitrageCtrl.arbitrage_calc_message(exchanges, usd_clp) + "\n";
         telegram.sendMessage(message.chat.id, answer, {
           parse_mode: "Markdown"
         });
       }
       arbitrageCtrl.btc_prices(show_arbitrage);
+
+    // ================================ Arbitrage ==============================
+  } else if(message.text.toLowerCase().indexOf("/arbitrage") === 0 || message.text.toLowerCase().indexOf("/bitcoin") === 0) {
+    var tries = 3;
+    function show_arbitrage(error, usd_clp, int_price, exchanges){
+      if (error && tries > 0) {
+        tries--;
+        telegram.sendMessage(message.chat.id, "Too many requests, retrying in 10 seconds...");
+        setTimeout(function() { arbitrageCtrl.eth_prices(show_arbitrage) }, 10000);
+        return;
+      } else if (error) {
+        telegram.sendMessage(message.chat.id, "ERROR on ArbitrageStatus: " + error);
+        return;
+      }
+      var answer = arbitrageCtrl.arbitrage_calc_message(exchanges, usd_clp) + "\n";
+      telegram.sendMessage(message.chat.id, answer, {
+        parse_mode: "Markdown"
+      });
+    }
+    arbitrageCtrl.eth_prices(show_arbitrage);
 
     // ================================Miner Status=============================
     } else if (message.text.toLowerCase().indexOf("/miner") === 0) {
