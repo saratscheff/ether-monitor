@@ -44,7 +44,7 @@ cron.schedule('*/2 * * * *', function(){
 cron.schedule('*/2 * * * *', function(){
   function check_miner(error, answer, workers_count, hashing_0, user){
     if (error) {
-      Console.log("ERROR on MinerOK?: " + error);
+      console.log("ERROR on MinerOK?: " + error);
       telegramCtrl.telegram.sendMessage(process.env.telegram_admin_id, "ERROR on MinerOK?: " + error);
     } else {
       if (workers_count != user.n_workers) {
