@@ -25,9 +25,13 @@ function process_message(user, message) {
     console.log("ERROR!! Null user!");
     return;
   }
-  if (user.waiting_for_command == "set_arbitrage_minimum"){
+  if (user.waiting_for_command && message.text == "cancel") {
+    user.waiting_for_command = undefined;
+    user.save();
+    telegram.sendMessage(message.chat.id, "Sure");
+  } else if (user.waiting_for_command == "set_arbitrage_minimum"){
     var new_limit = parseInt(message.text);
-    if (new_limit) {
+    if (new_limit && new_limit > 0) {
       user.arbitrage_minimum_alert = new_limit;
       user.waiting_for_command = undefined;
       user.save();
@@ -52,10 +56,19 @@ function process_message(user, message) {
       user.save();
       telegram.sendMessage(message.chat.id, "Success! Your miner address was succesfully registered: " + message.text);
     }
+  } else if (user.waiting_for_command == "spam_the_admin"){
+      telegram.sendMessage(message.chat.id, "Congrats, you got a spammer: [" + message.chat.id + '/' + message.from.first_name + "] => " + message.text);
+      user.waiting_for_command = undefined;
+      user.save();
+      telegram.sendMessage(message.chat.id, "Message sent! Thank you for your valuable feedback.");
   } else {
-
+    // ================================Help=============================
+    if(message.text.toLowerCase().indexOf("/help") === 0 || message.text.toLowerCase().indexOf("/about") === 0) {
+      var answer =
+      "Hi!\nType a forward slash ( / ) to see the list of available commands.\nThe most common ones are /eth and /btc anyways.\nIf you execute a command that requires a reply, such as /set\_arbitrage\_minimum, \ninstead of supplying an answer, simply type 'cancel' (Without the ' symbols) to cancel it.\nYou should receive a 'Sure' confirmation meaning the command was cancelled.";
+      telegram.sendMessage(message.chat.id, answer);
     // ================================Ether Status=============================
-    if(message.text.toLowerCase().indexOf("/eth") === 0 || message.text.toLowerCase().indexOf("/ether") === 0) {
+    } else if(message.text.toLowerCase().indexOf("/eth") === 0 || message.text.toLowerCase().indexOf("/ether") === 0) {
       var tries = 3;
       function show_arbitrage(error, usd_clp, int_price, exchanges){
         if (error && tries > 0) {
@@ -90,42 +103,42 @@ function process_message(user, message) {
       arbitrageCtrl.eth_prices(show_arbitrage);
 
     // ================================BTC Status=============================
-  } else if(message.text.toLowerCase().indexOf("/btc") === 0 || message.text.toLowerCase().indexOf("/bitcoin") === 0) {
-    var tries = 3;
-    function show_arbitrage(error, usd_clp, int_price, exchanges){
-      if (error && tries > 0) {
-        tries--;
-        telegram.sendMessage(message.chat.id, "Too many requests, retrying in 10 seconds...");
-        setTimeout(function() { arbitrageCtrl.btc_prices(show_arbitrage) }, 10000);
-        return;
-      } else if (error) {
-        telegram.sendMessage(message.chat.id, "ERROR on BTCStatus: " + error);
-        return;
-      }
-      var answer = "";
-      answer += "*INTERNATIONAL*\n";
-      answer += "Bitcoin Price in USD: " + int_price.toFixed(2) + "\n";
-      answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
-      answer += "Bitcoin Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
-      exchanges.forEach(function(exchange) {
-        answer += "*" + exchange.name + "*\n";
-        if (exchange.boring_currency === 'USD') {
-          answer += "Ask: " + exchange.ask.toFixed(2) + "(" + (exchange.ask*usd_clp).toFixed(1) + ")\n";
-          answer += "Bid: " + exchange.bid.toFixed(2) + "(" + (exchange.bid*usd_clp).toFixed(1) + ")\n";
-        } else {
-          answer += "Ask: " + exchange.ask.toFixed(2) + "\n";
-          answer += "Bid: " + exchange.bid.toFixed(2) + "\n";
+    } else if(message.text.toLowerCase().indexOf("/btc") === 0 || message.text.toLowerCase().indexOf("/bitcoin") === 0) {
+      var tries = 3;
+      function show_arbitrage(error, usd_clp, int_price, exchanges){
+        if (error && tries > 0) {
+          tries--;
+          telegram.sendMessage(message.chat.id, "Too many requests, retrying in 10 seconds...");
+          setTimeout(function() { arbitrageCtrl.btc_prices(show_arbitrage) }, 10000);
+          return;
+        } else if (error) {
+          telegram.sendMessage(message.chat.id, "ERROR on BTCStatus: " + error);
+          return;
         }
-      });
-      answer += arbitrageCtrl.arbitrage_calc_message(exchanges, usd_clp) + "\n";
-      telegram.sendMessage(message.chat.id, answer, {
-        parse_mode: "Markdown"
-      });
-    }
-    arbitrageCtrl.btc_prices(show_arbitrage);
+        var answer = "";
+        answer += "*INTERNATIONAL*\n";
+        answer += "Bitcoin Price in USD: " + int_price.toFixed(2) + "\n";
+        answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
+        answer += "Bitcoin Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
+        exchanges.forEach(function(exchange) {
+          answer += "*" + exchange.name + "*\n";
+          if (exchange.boring_currency === 'USD') {
+            answer += "Ask: " + exchange.ask.toFixed(2) + "(" + (exchange.ask*usd_clp).toFixed(1) + ")\n";
+            answer += "Bid: " + exchange.bid.toFixed(2) + "(" + (exchange.bid*usd_clp).toFixed(1) + ")\n";
+          } else {
+            answer += "Ask: " + exchange.ask.toFixed(2) + "\n";
+            answer += "Bid: " + exchange.bid.toFixed(2) + "\n";
+          }
+        });
+        answer += arbitrageCtrl.arbitrage_calc_message(exchanges, usd_clp) + "\n";
+        telegram.sendMessage(message.chat.id, answer, {
+          parse_mode: "Markdown"
+        });
+      }
+      arbitrageCtrl.btc_prices(show_arbitrage);
 
-  // ================================Miner Status=============================
-  } else if (message.text.toLowerCase().indexOf("/miner") === 0) {
+    // ================================Miner Status=============================
+    } else if (message.text.toLowerCase().indexOf("/miner") === 0) {
       if (!user.miner_address) {
         telegram.sendMessage(message.chat.id, "No miner address registered. To register one use the command /register_miner_address");
         return;
@@ -148,7 +161,7 @@ function process_message(user, message) {
       }
       ethermineCtrl.miner_status_telegram(user.miner_address, send_status);
 
-    // =============================Set Arbitrage Limit=========================
+    // =============================Register Miner Addr=========================
     } else if (message.text.toLowerCase().indexOf("/register_miner_address") === 0) {
       telegram.sendMessage(message.chat.id, "What's the miner address? If you want to delete you account send the word 'none' (WARNING, only ethermine.org is supported for now)", {
         parse_mode: "Markdown"
@@ -162,6 +175,14 @@ function process_message(user, message) {
         parse_mode: "Markdown"
       });
       user.waiting_for_command = "set_arbitrage_minimum";
+      user.save();
+
+    // ===============================Spam the admin============================
+    } else if (message.text.toLowerCase().indexOf("/spam_the_admin") === 0) {
+      telegram.sendMessage(message.chat.id, "What would you like to tell the admin? *(Try to use this for feedback)*", {
+        parse_mode: "Markdown"
+      });
+      user.waiting_for_command = "spam_the_admin";
       user.save();
 
     // ===============================Something else============================
