@@ -188,7 +188,7 @@ function process_message(user, message) {
     // ===============================Something else============================
     } else {
       if (message.chat.id > 0) {
-        telegram.sendMessage(message.chat.id, "Nope");
+        telegram.sendMessage(message.chat.id, "Nope (Looking for /help ?)");
       }
     }
   }
