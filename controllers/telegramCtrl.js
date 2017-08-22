@@ -63,7 +63,7 @@ function process_message(user, message) {
       telegram.sendMessage(message.chat.id, "Message sent! Thank you for your valuable feedback.");
   } else {
     // ================================Help=============================
-    if(message.text.toLowerCase().indexOf("/help") === 0 || message.text.toLowerCase().indexOf("/about") === 0) {
+    if(message.text.toLowerCase().indexOf("/help") === 0 || message.text.toLowerCase().indexOf("/start") === 0 || message.text.toLowerCase().indexOf("/about") === 0) {
       var answer =
       "Hi!\nType a forward slash ( / ) to see the list of available commands.\nCancel a command waiting for an answer by typing *cancel* (such as /set\_arbitrage\_minimum).\nYou should receive a 'Sure' confirmation meaning the command was cancelled.";
       telegram.sendMessage(message.chat.id, answer);
