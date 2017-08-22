@@ -65,7 +65,7 @@ function process_message(user, message) {
     // ================================Help=============================
     if(message.text.toLowerCase().indexOf("/help") === 0 || message.text.toLowerCase().indexOf("/about") === 0) {
       var answer =
-      "Hi!\nType a forward slash ( / ) to see the list of available commands.\nThe most common ones are /eth and /btc anyways.\nIf you execute a command that requires a reply, such as /set\_arbitrage\_minimum, \ninstead of supplying an answer, simply type 'cancel' (Without the ' symbols) to cancel it.\nYou should receive a 'Sure' confirmation meaning the command was cancelled.";
+      "Hi!\nType a forward slash ( / ) to see the list of available commands.\nCancel a command waiting for an answer by typing *cancel* (such as /set\_arbitrage\_minimum).\nYou should receive a 'Sure' confirmation meaning the command was cancelled.";
       telegram.sendMessage(message.chat.id, answer);
     // ================================Ether Status=============================
     } else if(message.text.toLowerCase().indexOf("/eth") === 0 || message.text.toLowerCase().indexOf("/ether") === 0) {
