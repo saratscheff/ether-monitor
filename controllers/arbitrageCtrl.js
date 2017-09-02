@@ -170,7 +170,7 @@ function arbitrage_calc(exchanges, usd_clp) {
       } else {
         ex2 = exchange2.bid;
       }
-      if ((calc = ex2 - ex1) > 0){
+      if ((calc = ex2 - ex1) > 0 && ex1 > 0 && ex2 > 0){
         result.push(new Arbitrage(calc, exchange1.name + ' *->* ' + exchange2.name));
       }
     });
