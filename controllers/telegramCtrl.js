@@ -57,7 +57,7 @@ function process_message(user, message) {
       telegram.sendMessage(message.chat.id, "Success! Your miner address was succesfully registered: " + message.text);
     }
   } else if (user.waiting_for_command == "spam_the_admin"){
-      telegram.sendMessage(message.chat.id, "Congrats, you got a spammer: [" + message.chat.id + '/' + message.from.first_name + "] => " + message.text);
+      telegram.sendMessage(process.env.telegram_admin_id, "Congrats, you got a spammer: [" + message.chat.id + '/' + message.from.first_name + "] => " + message.text);
       user.waiting_for_command = undefined;
       user.save();
       telegram.sendMessage(message.chat.id, "Message sent! Thank you for your valuable feedback.");
