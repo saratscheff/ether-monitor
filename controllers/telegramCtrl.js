@@ -12,8 +12,8 @@ var TelegramBot = require('node-telegram-bot-api'),
 
 function arbitrage_alerts(arbitrage_opportunity) {
   helpers.iterate_users(function(user) {
-    if (user['arbitrage_opportunity.origin']
-        && user['arbitrage_opportunity.destination']
+    if (user['arbitrage_opportunity.origin.name']
+        && user['arbitrage_opportunity.destination.name']
         && user.arbitrage_minimum_alert
         && (user.arbitrage_minimum_alert < arbitrage_opportunity.amount
             || arbitrage_opportunity.amount < -user.arbitrage_minimum_alert)
@@ -21,9 +21,9 @@ function arbitrage_alerts(arbitrage_opportunity) {
       var message = "ARBITRAGE: *"
           + parseFloat(arbitrage_opportunity.amount).toFixed(1)
           + '*\n('
-          + arbitrage_opportunity.origin
+          + arbitrage_opportunity.origin.name
           + ' *->* '
-          + arbitrage_opportunity.destination + ')';
+          + arbitrage_opportunity.destination.name + ')';
       telegram.sendMessage(user._id, message, {
         parse_mode: "Markdown"
       });

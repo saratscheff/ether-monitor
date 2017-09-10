@@ -23,7 +23,13 @@ cron.schedule('*/2 * * * *', function(){
     } else {
       var arbitrage = arbitrageCtrl.arbitrage_calc(exchanges, usd_clp);
       arbitrage.forEach(function(arbitrage_opportunity) {
-        var text = datetime + " // " + arbitrage_opportunity.amount +" // " + arbitrage_opportunity.origin + ' *->* ' + arbitrage_opportunity.destination + '\n';
+        var text = datetime
+                   + " // "
+                   + arbitrage_opportunity.amount
+                   +" // " + arbitrage_opportunity.origin.name
+                   + ' *->* '
+                   + arbitrage_opportunity.destination.name
+                   + '\n';
         fs.appendFile(file, text, function (err) {
             if (err) return console.log(err);
         });

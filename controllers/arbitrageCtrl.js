@@ -185,7 +185,11 @@ function arbitrage_calc_message(exchanges, usd_clp) {
     result_message += "\nNone...";
   } else {
     result.forEach(function(arbitrage_opportunity) {
-      result_message += "\nCLP$*" + parseFloat(arbitrage_opportunity.amount).toFixed(1) + "* (" + arbitrage_opportunity.origin + " *->* " + arbitrage_opportunity.destination + ")";
+      result_message += "\nCLP$*"
+                        + parseFloat(arbitrage_opportunity.amount).toFixed(1)
+                        + "* (" + arbitrage_opportunity.origin.name
+                        + " *->* " + arbitrage_opportunity.destination.name
+                        + ")";
     });
   }
   return result_message;
