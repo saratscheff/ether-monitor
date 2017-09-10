@@ -62,7 +62,7 @@ function process_message(user, message) {
       user.surbtc = false;
       user.kraken = false;
       user.lykke = false;
-      for (market = 0; market < message_length; market++){
+      for (market = 0; market < message.text.length; market++){
         switch (message.text[market]) {
           case 1: user.cryptomkt = true; break;
           case 2: user.surbtc = true; break;
