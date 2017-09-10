@@ -57,7 +57,7 @@ function process_message(user, message) {
     }
   } else if (user.waiting_for_command == "set_arbitrage_markets"){
     var new_limit = parseInt(message.text);
-    if (new_limit && message.length <= 4) {
+    if (new_limit && message.text.length <= 4) {
       user.cryptomkt = false;
       user.surbtc = false;
       user.kraken = false;
