@@ -171,7 +171,7 @@ function arbitrage_calc(exchanges, usd_clp) {
         ex2 = exchange2.bid;
       }
       if ((calc = ex2 - ex1) > 0 && ex1 > 0 && ex2 > 0){
-        result.push(new Arbitrage(calc, exchange1.name + ' *->* ' + exchange2.name));
+        result.push(new Arbitrage(calc, exchange1, exchange2));
       }
     });
   });
@@ -185,7 +185,7 @@ function arbitrage_calc_message(exchanges, usd_clp) {
     result_message += "\nNone...";
   } else {
     result.forEach(function(arbitrage_opportunity) {
-      result_message += "\nCLP$*" + parseFloat(arbitrage_opportunity.amount).toFixed(1) + "* (" + arbitrage_opportunity.direction_message + ")";
+      result_message += "\nCLP$*" + parseFloat(arbitrage_opportunity.amount).toFixed(1) + "* (" + arbitrage_opportunity.origin + " *->* " + arbitrage_opportunity.destination + ")";
     });
   }
   return result_message;

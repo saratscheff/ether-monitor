@@ -4,9 +4,10 @@
 var ar = Arbitrage.prototype;
 
 // Constructor
-function Arbitrage(amount, direction_message) {
+function Arbitrage(amount, origin, destination) {
     this.amount = amount;
-    this.direction_message = direction_message;
+    this.origin = origin;
+    this.destination = destination;
 }
 
 // Methods

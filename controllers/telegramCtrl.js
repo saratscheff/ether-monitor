@@ -10,10 +10,21 @@ var api_key = (process.env.telegram_api_key) ? process.env.telegram_api_key : "4
 var TelegramBot = require('node-telegram-bot-api'),
     telegram = new TelegramBot(api_key, { polling: true });
 
-function arbitrage_alerts(value, answer) {
+function arbitrage_alerts(arbitrage_opportunity) {
   helpers.iterate_users(function(user) {
-    if (user.arbitrage_minimum_alert && (user.arbitrage_minimum_alert < value || value < -user.arbitrage_minimum_alert)) {
-      telegram.sendMessage(user._id, answer, {
+    if (user['arbitrage_opportunity.origin']
+        && user['arbitrage_opportunity.destination']
+        && user.arbitrage_minimum_alert
+        && (user.arbitrage_minimum_alert < arbitrage_opportunity.amount
+            || arbitrage_opportunity.amount < -user.arbitrage_minimum_alert)
+        ) {
+      var message = "ARBITRAGE: *"
+          + parseFloat(arbitrage_opportunity.amount).toFixed(1)
+          + '*\n('
+          + arbitrage_opportunity.origin
+          + ' *->* '
+          + arbitrage_opportunity.destination + ')';
+      telegram.sendMessage(user._id, message, {
         parse_mode: "Markdown"
       });
     }
@@ -43,6 +54,27 @@ function process_message(user, message) {
       telegram.sendMessage(message.chat.id, "Success! Alerts are now disabled.");
     } else {
       telegram.sendMessage(message.chat.id, "INVALID FORMAT, please try again, what would you like to be the new minimum limit to be alerted for arbitrage? (PLAIN NUMBER ONLY!)");
+    }
+  } else if (user.waiting_for_command == "set_arbitrage_markets"){
+    var new_limit = parseInt(message.text);
+    if (new_limit && message.length <= 4) {
+      user.cryptomkt = false;
+      user.surbtc = false;
+      user.kraken = false;
+      user.lykke = false;
+      for (market = 0; market < message_length; market++){
+        switch (message.text[market]) {
+          case 1: user.cryptomkt = true; break;
+          case 2: user.surbtc = true; break;
+          case 3: user.kraken = true; break;
+          case 4: user.lykke = true; break;
+        }
+      }
+      user.waiting_for_command = undefined;
+      user.save();
+      telegram.sendMessage(message.chat.id, "Success! Markets preference updated");
+    } else {
+      telegram.sendMessage(message.chat.id, "INVALID FORMAT, please try again, answer `1234` to activate all markets.");
     }
   } else if (user.waiting_for_command == "register_miner_address"){
     if (message.text.toLowerCase().indexOf("none") === 0) {
@@ -191,10 +223,18 @@ function process_message(user, message) {
 
     // =============================Set Arbitrage Limit=========================
     } else if (message.text.toLowerCase().indexOf("/set_arbitrage_minimum") === 0) {
-      telegram.sendMessage(message.chat.id, "What's the new minimum limit to get alerted for? Choose 0 to disable alerts (Plain number, for example: 10000)", {
+      telegram.sendMessage(message.chat.id, "What's the new minimum limit to get alerted for? Choose 0 to disable alerts (Plain number, for example: `10000`)", {
         parse_mode: "Markdown"
       });
       user.waiting_for_command = "set_arbitrage_minimum";
+      user.save();
+
+    // ============================Set Arbitrage Markets========================
+  } else if (message.text.toLowerCase().indexOf("/set_arbitrage_markets") === 0) {
+      telegram.sendMessage(message.chat.id, "Please choose markets: 1 => Cryptomkt, 2 => Surbtc, 3 => Kraken, 4 => Lykke (For example, to deactivate kraken alerts: `124`)", {
+        parse_mode: "Markdown"
+      });
+      user.waiting_for_command = "set_arbitrage_markets";
       user.save();
 
     // ===============================Spam the admin============================
