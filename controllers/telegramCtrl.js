@@ -36,7 +36,7 @@ function process_message(user, message) {
     console.log("ERROR!! Null user!");
     return;
   }
-  if (user.waiting_for_command && (message.text == "cancel" || message.text == "Cancel") {
+  if (user.waiting_for_command && (message.text == "cancel" || message.text == "Cancel")) {
     user.waiting_for_command = undefined;
     user.save();
     telegram.sendMessage(message.chat.id, "Sure");
