@@ -23,7 +23,7 @@ if (process.env.production_server) {
 mongoDB.then(function (db) {
     console.log('mongodb has been connected');
 }).catch(function (err) {
-    console.log('error while trying to connect with mongodb: ' + err);
+    console.error('error while trying to connect with mongodb: ' + err);
 });
 
 // Load models

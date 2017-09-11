@@ -17,7 +17,6 @@ var request = require('request');
 
 wa.getBalance = function(callback) {
   var url = 'https://api.etherscan.io/api?module=account&action=balance&address=' + this.dir + '&tag=latest&apikey=' + ETHERSCAN_API_KEY;
-  console.log(url);
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       body = JSON.parse(body);

@@ -19,7 +19,7 @@ cron.schedule('*/2 * * * *', function(){
     var file = public_path + '/arbitrages.txt';
     var datetime = '[' + (new Date()).toLocaleString() + '] ';
     if (error){
-      console.log('error while cron calculating arbitrage: ' + error);
+      console.error('error while cron calculating arbitrage: ' + error);
     } else {
       var arbitrage = arbitrageCtrl.arbitrage_calc(exchanges, usd_clp);
       arbitrage.forEach(function(arbitrage_opportunity) {
@@ -31,7 +31,7 @@ cron.schedule('*/2 * * * *', function(){
                    + arbitrage_opportunity.destination.name
                    + '\n';
         fs.appendFile(file, text, function (err) {
-            if (err) return console.log(err);
+            if (err) return console.error(err);
         });
         //========================= TELEGRAM ALERT ==============================
         telegramCtrl.arbitrage_alerts(arbitrage_opportunity);
@@ -50,7 +50,7 @@ cron.schedule('*/2 * * * *', function(){
 cron.schedule('*/2 * * * *', function(){
   function check_miner(error, answer, workers_count, hashing_0, user){
     if (error) {
-      console.log("ERROR on MinerOK?: " + error);
+      console.error("ERROR on MinerOK?: " + error);
       telegramCtrl.telegram.sendMessage(process.env.telegram_admin_id, "ERROR on MinerOK?: " + error);
     } else {
       if (workers_count != user.n_workers) {

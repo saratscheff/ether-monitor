@@ -24,16 +24,20 @@ function arbitrage_alerts(arbitrage_opportunity) {
           + arbitrage_opportunity.origin.name
           + ' *->* '
           + arbitrage_opportunity.destination.name + ')';
-      telegram.sendMessage(user._id, message, {
-        parse_mode: "Markdown"
-      });
+      try {
+        telegram.sendMessage(user._id, message, {
+          parse_mode: "Markdown"
+        });
+      } catch(err) {
+        console.error("ERROR SENDING MESSAGE TO USER: " + user._id + " ERROR: " + err);
+      }
     }
   });
 }
 
 function process_message(user, message) {
   if (user == null) {
-    console.log("ERROR!! Null user!");
+    console.error("ERROR!! Null user!");
     return;
   }
   if (user.waiting_for_command && (message.text == "cancel" || message.text == "Cancel")) {
@@ -267,7 +271,7 @@ function check_user(message, callback) {
                                   });
       user.save(function(err, user) {
         if (err) {
-          console.log("Error while adding new user!! => " + err);
+          console.error("Error while adding new user!! => " + err);
           telegram.sendMessage(message.chat.id, "Yeah sorry, couldn't register you here bruh. Try again or contact an admin.");
         } else {
           telegram.sendMessage(process.env.telegram_admin_id, "New user using the bot! => " + message.chat.id);
@@ -277,7 +281,7 @@ function check_user(message, callback) {
     } else if (user && !err){
       callback(user, message);
     } else {
-      console.log("ERROR when searching for user!");
+      console.error("ERROR when searching for user!");
     }
   });
 }
