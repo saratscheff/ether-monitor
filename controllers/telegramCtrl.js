@@ -63,7 +63,7 @@ function process_message(user, message) {
       user.kraken = false;
       user.lykke = false;
       for (market = 0; market < message.text.length; market++){
-        switch (message.text[market]) {
+        switch (parseInt(message.text[market])) {
           case 1: user.cryptomkt = true; break;
           case 2: user.surbtc = true; break;
           case 3: user.kraken = true; break;
@@ -257,7 +257,14 @@ function process_message(user, message) {
 function check_user(message, callback) {
   mongodb.User.findOne({ _id: message.chat.id }, function(err, user) {
     if (err == null && user == null) {
-      var user = new mongodb.User({_id: message.chat.id, n_workers: 0, arbitrage_minimum_alert: undefined});
+      var user = new mongodb.User({ _id: message.chat.id,
+                                    n_workers: 0,
+                                    arbitrage_minimum_alert: undefined,
+                                    cryptomkt: true,
+                                    surbtc: true,
+                                    kraken: true,
+                                    lykke: true
+                                  });
       user.save(function(err, user) {
         if (err) {
           console.log("Error while adding new user!! => " + err);
