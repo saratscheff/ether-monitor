@@ -58,12 +58,12 @@ function price_change_alerts(coin, new_price) {
       var message = '';
       if (last_price < (new_price - change_limit)) {
         send_message = true;
-        message = coin + " PRICE DECREASED: *" + parseFloat(new_price).toFixed(2) + "*";
-        set_user_last_price(coint, new_price);
+        message = coin + " PRICE INCREASED: *" + new_price + "*";
+        set_user_last_price(coin, new_price, user);
       } else if (last_price > (new_price + change_limit)) {
         send_message = true;
-        message = coin + " PRICE INCREASED: *" + parseFloat(new_price).toFixed(2) + "*";
-        set_user_last_price(coint, new_price);
+        message = coin + " PRICE DECREASED: *" + new_price + "*";
+        set_user_last_price(coin, new_price, user);
       }
       if (send_message) {
         try {
@@ -78,7 +78,7 @@ function price_change_alerts(coin, new_price) {
   });
 }
 
-function set_user_last_price(coin, new_price) {
+function set_user_last_price(coin, new_price, user) {
   if (coin == 'ETH') {
     user.last_eth_price = new_price;
     user.save();
@@ -349,9 +349,6 @@ function process_message(user, message) {
       user.save();
 
     // ===============================Something else============================
-  } else if (message.text.toLowerCase().indexOf("/debug") === 0) {
-    price_change_alerts('ETH', 100);
-    telegram.sendMessage(message.chat.id, JSON.stringify(user));
   } else {
       if (message.chat.id > 0) {
         telegram.sendMessage(message.chat.id, "Nope (Looking for /help ?)");
