@@ -46,18 +46,21 @@ function price_change_alerts(coin, new_price) {
     }
 
     if (change_limit) {
-      var message = '';
       if (last_price < (new_price - change_limit)) {
+        send_message = true;
         message = coin + " PRICE DECREASED: *" + parseFloat(new_price).toFixed(2) + "*";
       } else if (last_price > (new_price + change_limit)) {
+        send_message = true;
         message = coin + " PRICE INCREASED: *" + parseFloat(new_price).toFixed(2) + "*";
       }
-      try {
-        telegram.sendMessage(user._id, message, {
-          parse_mode: "Markdown"
-        });
-      } catch(err) {
-        console.error("ERROR SENDING MESSAGE TO USER: " + user._id + " ERROR: " + err);
+      if (send_message) {
+        try {
+          telegram.sendMessage(user._id, message, {
+            parse_mode: "Markdown"
+          });
+        } catch(err) {
+          console.error("ERROR SENDING MESSAGE TO USER: " + user._id + " ERROR: " + err);
+        }
       }
     }
   });
