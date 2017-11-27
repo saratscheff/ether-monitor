@@ -46,6 +46,8 @@ function price_change_alerts(coin, new_price) {
     }
 
     if (change_limit) {
+      var send_message = false;
+      var message = '';
       if (last_price < (new_price - change_limit)) {
         send_message = true;
         message = coin + " PRICE DECREASED: *" + parseFloat(new_price).toFixed(2) + "*";
