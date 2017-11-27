@@ -40,9 +40,17 @@ function price_change_alerts(coin, new_price) {
     if (coin == 'ETH') {
       change_limit = user.eth_change_limit;
       last_price = user.last_eth_price;
+      if (!last_price) {
+        user.last_eth_price = new_price;
+        user.save();
+      }
     } else if (coin == 'BTC') {
       change_limit = user.btc_change_limit;
       last_price = user.last_btc_price;
+      if (!last_price) {
+        user.last_btc_price = new_price;
+        user.save();
+      }
     }
 
     if (change_limit) {
