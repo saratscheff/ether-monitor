@@ -365,5 +365,6 @@ telegram.on("text", (message) => {
 
 module.exports = {
   arbitrage_alerts: arbitrage_alerts,
-  telegram: telegram
+  telegram: telegram,
+  price_change_alerts: price_change_alerts
 }
