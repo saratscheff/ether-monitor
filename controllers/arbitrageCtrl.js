@@ -155,6 +155,48 @@ function btc_prices(callback) {
   }
 }
 
+function eth_price(callback) {
+  function valid_request(name, url, process_callback) {
+    var request = require('request');
+
+    request(url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        body = JSON.parse(body);
+        process_callback(body);
+      } else if (error){
+        callback('ERROR requesting to ' + name + '. Error_message =>' + error, null);
+      } else {
+        callback('ERROR requesting to ' + name + '. Status code => ' + response.statusCode, null);
+      }
+    });
+  }
+  // ----------- Ether international price
+  valid_request('ethereumprice.org', 'https://ethereumprice.org/wp-content/themes/theme/inc/exchanges/price-data.php?coin=eth&cur=ethusd&ex=waex', function (body) {
+    callback(false, parseFloat(body['current_price']));
+  });
+}
+
+function btc_price(callback) {
+  function valid_request(name, url, process_callback) {
+    var request = require('request');
+
+    request(url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        body = JSON.parse(body);
+        process_callback(body);
+      } else if (error){
+        callback('ERROR requesting to ' + name + '. Error_message =>' + error, null);
+      } else {
+        callback('ERROR requesting to ' + name + '. Status code => ' + response.statusCode, null);
+      }
+    });
+  }
+  // ----------- BTC international price
+  valid_request('bitcoinaverage.com', 'https://apiv2.bitcoinaverage.com/constants/exchangerates/global', function (body) {
+    callback(false, 1/parseFloat(body['rates']['BTC']['rate']));
+  });
+}
+
 function arbitrage_calc(exchanges, usd_clp) {
   // TODO: Add market fees
   var result = [];
@@ -196,8 +238,10 @@ function arbitrage_calc_message(exchanges, usd_clp) {
 }
 
 module.exports = {
-    eth_prices: eth_prices,
-    btc_prices: btc_prices,
-    arbitrage_calc: arbitrage_calc,
-    arbitrage_calc_message: arbitrage_calc_message
+  eth_prices: eth_prices,
+  btc_prices: btc_prices,
+  eth_price: eth_price,
+  btc_price: btc_price,
+  arbitrage_calc: arbitrage_calc,
+  arbitrage_calc_message: arbitrage_calc_message
 };

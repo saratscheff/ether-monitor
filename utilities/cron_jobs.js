@@ -73,3 +73,38 @@ cron.schedule('*/2 * * * *', function(){
     }
   });
 });
+
+// =============================================================================
+// =============================================================================
+// ================================ETH_CHANGE===================================
+// =============================================================================
+// =============================================================================
+
+cron.schedule('*/2 * * * *', function(){
+  function check_alerts(error, international_price){
+    if (error){
+      console.error('error while cron calculating eth_change alerts: ' + error);
+    } else {
+      telegramCtrl.price_change_alerts('ETH', international_price);
+    }
+  }
+  arbitrageCtrl.eth_price(check_alerts);
+});
+
+// =============================================================================
+// =============================================================================
+// ================================BTC_CHANGE===================================
+// =============================================================================
+// =============================================================================
+
+
+cron.schedule('*/2 * * * *', function(){
+  function check_alerts(error, international_price){
+    if (error){
+      console.error('error while cron calculating btc_change alerts: ' + error);
+    } else {
+      telegramCtrl.price_change_alerts('BTC');
+    }
+  }
+  arbitrageCtrl.btc_price(check_alerts);
+});

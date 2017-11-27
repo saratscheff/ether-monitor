@@ -19,7 +19,11 @@ var userSchema = mongoose.Schema({
   kraken: Boolean,
   lykke: Boolean,
   waiting_for_command: String,
-  miner_address: String
+  miner_address: String,
+  last_eth_price: Number,
+  last_btc_price: Number,
+  eth_change_limit: Number,
+  btc_change_limit: Number
 });
 
 // userSchema.methods.message = function(markdown_text) {
@@ -30,5 +34,5 @@ var User = mongoose.model('User', userSchema);
 //var user_sample = new Users({ id: 158556890 });
 
 module.exports = {
-    User: User
+  User: User
 };

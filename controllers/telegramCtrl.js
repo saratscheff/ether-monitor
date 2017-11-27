@@ -35,6 +35,33 @@ function arbitrage_alerts(arbitrage_opportunity) {
   });
 }
 
+function price_change_alerts(coin, new_price) {
+  helpers.iterate_users(function(user) {
+    if (coin == 'ETH') {
+      change_limit = user.eth_change_limit;
+      last_price = user.last_eth_price;
+    } else if (coin == 'BTC') {
+      change_limit = user.btc_change_limit;
+      last_price = user.last_btc_price;
+    }
+
+    if (change_limit) {
+      if (last_price < (new_price - change_limit)) {
+        var message = coin + " PRICE DECREASED: *" + parseFloat(new_price).toFixed(2) + "*";
+      } else if (last_price > (new_price + change_limit)) {
+        var message = coin + " PRICE INCREASED: *" + parseFloat(new_price).toFixed(2) + "*";
+      }
+      try {
+        telegram.sendMessage(user._id, message, {
+          parse_mode: "Markdown"
+        });
+      } catch(err) {
+        console.error("ERROR SENDING MESSAGE TO USER: " + user._id + " ERROR: " + err);
+      }
+    }
+  });
+}
+
 function process_message(user, message) {
   if (user == null) {
     console.error("ERROR!! Null user!");
@@ -93,10 +120,40 @@ function process_message(user, message) {
       telegram.sendMessage(message.chat.id, "Success! Your miner address was succesfully registered: " + message.text);
     }
   } else if (user.waiting_for_command == "spam_the_admin"){
-      telegram.sendMessage(process.env.telegram_admin_id, "Congrats, you got a spammer: [" + message.chat.id + '/' + message.from.first_name + "] => " + message.text);
+    telegram.sendMessage(process.env.telegram_admin_id, "Congrats, you got a spammer: [" + message.chat.id + '/' + message.from.first_name + "] => " + message.text);
+    user.waiting_for_command = undefined;
+    user.save();
+    telegram.sendMessage(message.chat.id, "Message sent! Thank you for your valuable feedback.");
+  } else if (user.waiting_for_command == "set_eth_change_alert"){
+    var new_limit = parseInt(message.text);
+    if (new_limit && new_limit > 0) {
+      user.eth_change_limit = new_limit;
       user.waiting_for_command = undefined;
       user.save();
-      telegram.sendMessage(message.chat.id, "Message sent! Thank you for your valuable feedback.");
+      telegram.sendMessage(message.chat.id, "Success! New minimum change limit for alerts: " + new_limit);
+    } else if (new_limit === 0){
+      user.eth_change_limit = undefined;
+      user.waiting_for_command = undefined;
+      user.save();
+      telegram.sendMessage(message.chat.id, "Success! Alerts are now disabled.");
+    } else {
+      telegram.sendMessage(message.chat.id, "INVALID FORMAT, please try again, what would you like to be the new minimum change limit to be alerted for? (PLAIN NUMBER ONLY!)");
+    }
+  } else if (user.waiting_for_command == "set_btc_change_alert"){
+    var new_limit = parseInt(message.text);
+    if (new_limit && new_limit > 0) {
+      user.btc_change_limit = new_limit;
+      user.waiting_for_command = undefined;
+      user.save();
+      telegram.sendMessage(message.chat.id, "Success! New minimum change limit for alerts: " + new_limit);
+    } else if (new_limit === 0){
+      user.btc_change_limit = undefined;
+      user.waiting_for_command = undefined;
+      user.save();
+      telegram.sendMessage(message.chat.id, "Success! Alerts are now disabled.");
+    } else {
+      telegram.sendMessage(message.chat.id, "INVALID FORMAT, please try again, what would you like to be the new minimum change limit to be alerted for? (PLAIN NUMBER ONLY!)");
+    }
   } else {
     // ================================Help=============================
     if(message.text.toLowerCase().indexOf("/help") === 0 || message.text.toLowerCase().indexOf("/start") === 0 || message.text.toLowerCase().indexOf("/about") === 0) {
@@ -234,7 +291,7 @@ function process_message(user, message) {
       user.save();
 
     // ============================Set Arbitrage Markets========================
-  } else if (message.text.toLowerCase().indexOf("/set_arbitrage_markets") === 0) {
+    } else if (message.text.toLowerCase().indexOf("/set_arbitrage_markets") === 0) {
       telegram.sendMessage(message.chat.id, "Please choose markets: 1 => Cryptomkt, 2 => Surbtc, 3 => Kraken, 4 => Lykke (For example, to deactivate kraken alerts: `124`)", {
         parse_mode: "Markdown"
       });
@@ -247,6 +304,22 @@ function process_message(user, message) {
         parse_mode: "Markdown"
       });
       user.waiting_for_command = "spam_the_admin";
+      user.save();
+
+    // ===============================Something else============================
+    } else if (message.text.toLowerCase().indexOf("/set_eth_change_alert") === 0) {
+      telegram.sendMessage(message.chat.id, "What's the new change limit to get alerted for? Choose 0 to disable alerts (Plain number, for example: `10`)", {
+        parse_mode: "Markdown"
+      });
+      user.waiting_for_command = "set_eth_change_alert";
+      user.save();
+
+    // ===============================Something else============================
+    } else if (message.text.toLowerCase().indexOf("/set_btc_change_alert") === 0) {
+      telegram.sendMessage(message.chat.id, "What's the new minimum limit to get alerted for? Choose 0 to disable alerts (Plain number, for example: `100`)", {
+        parse_mode: "Markdown"
+      });
+      user.waiting_for_command = "set_btc_change_alert";
       user.save();
 
     // ===============================Something else============================
