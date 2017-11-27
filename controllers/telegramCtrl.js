@@ -51,9 +51,11 @@ function price_change_alerts(coin, new_price) {
       if (last_price < (new_price - change_limit)) {
         send_message = true;
         message = coin + " PRICE DECREASED: *" + parseFloat(new_price).toFixed(2) + "*";
+        set_user_last_price(coint, new_price);
       } else if (last_price > (new_price + change_limit)) {
         send_message = true;
         message = coin + " PRICE INCREASED: *" + parseFloat(new_price).toFixed(2) + "*";
+        set_user_last_price(coint, new_price);
       }
       if (send_message) {
         try {
@@ -66,6 +68,16 @@ function price_change_alerts(coin, new_price) {
       }
     }
   });
+}
+
+function set_user_last_price(coin, new_price) {
+  if (coin == 'ETH') {
+    user.last_eth_price = new_price;
+    user.save();
+  } else if (coin == 'BTC') {
+    user.last_btc_price = new_price;
+    user.save();
+  }
 }
 
 function process_message(user, message) {
