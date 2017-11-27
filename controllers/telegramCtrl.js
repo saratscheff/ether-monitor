@@ -324,16 +324,7 @@ function process_message(user, message) {
 
     // ===============================Something else============================
   } else if (message.text.toLowerCase().indexOf("/debug") === 0) {
-    function check_alerts(error, international_price){
-      if (error){
-        console.error('error while cron calculating eth_change alerts: ' + error);
-      } else {
-        telegram.sendMessage(message.chat.id, international_price, {
-          parse_mode: "Markdown"
-        });
-      }
-    }
-    arbitrageCtrl.eth_price(check_alerts);
+    telegramCtrl.price_change_alerts('ETH', 100);
   } else {
       if (message.chat.id > 0) {
         telegram.sendMessage(message.chat.id, "Nope (Looking for /help ?)");
