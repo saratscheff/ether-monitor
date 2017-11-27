@@ -323,7 +323,7 @@ function process_message(user, message) {
       user.save();
 
     // ===============================Something else============================
-  } else if (messate.text.toLowerCase().indexOf("/debug") === 0) {
+  } else if (message.text.toLowerCase().indexOf("/debug") === 0) {
     function check_alerts(error, international_price){
       if (error){
         console.error('error while cron calculating eth_change alerts: ' + error);
