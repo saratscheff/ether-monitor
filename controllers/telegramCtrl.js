@@ -324,7 +324,7 @@ function process_message(user, message) {
 
     // ===============================Something else============================
   } else if (message.text.toLowerCase().indexOf("/debug") === 0) {
-    telegramCtrl.price_change_alerts('ETH', 100);
+    price_change_alerts('ETH', 100);
   } else {
       if (message.chat.id > 0) {
         telegram.sendMessage(message.chat.id, "Nope (Looking for /help ?)");
