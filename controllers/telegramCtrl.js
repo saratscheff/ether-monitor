@@ -46,10 +46,11 @@ function price_change_alerts(coin, new_price) {
     }
 
     if (change_limit) {
+      var message = '';
       if (last_price < (new_price - change_limit)) {
-        var message = coin + " PRICE DECREASED: *" + parseFloat(new_price).toFixed(2) + "*";
+        message = coin + " PRICE DECREASED: *" + parseFloat(new_price).toFixed(2) + "*";
       } else if (last_price > (new_price + change_limit)) {
-        var message = coin + " PRICE INCREASED: *" + parseFloat(new_price).toFixed(2) + "*";
+        message = coin + " PRICE INCREASED: *" + parseFloat(new_price).toFixed(2) + "*";
       }
       try {
         telegram.sendMessage(user._id, message, {
