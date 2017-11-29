@@ -47,7 +47,7 @@ cron.schedule('*/2 * * * *', function(){
 // =============================================================================
 // =============================================================================
 
-cron.schedule('*/2 * * * *', function(){
+cron.schedule('*/10 * * * *', function(){
   function check_miner(error, answer, workers_count, hashing_0, user){
     if (error) {
       console.error("ERROR on MinerOK?: " + error);
@@ -80,7 +80,7 @@ cron.schedule('*/2 * * * *', function(){
 // =============================================================================
 // =============================================================================
 
-cron.schedule('*/2 * * * *', function(){
+cron.schedule('*/5 * * * *', function(){
   function check_alerts(error, international_price){
     if (error){
       console.error('error while cron calculating eth_change alerts: ' + error);
@@ -98,7 +98,7 @@ cron.schedule('*/2 * * * *', function(){
 // =============================================================================
 
 
-cron.schedule('*/2 * * * *', function(){
+cron.schedule('*/5 * * * *', function(){
   function check_alerts(error, international_price){
     if (error){
       console.error('error while cron calculating btc_change alerts: ' + error);
