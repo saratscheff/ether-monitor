@@ -332,7 +332,7 @@ function process_message(user, message) {
       user.waiting_for_command = "spam_the_admin";
       user.save();
 
-    // ===============================Something else============================
+    // ===========================set_eth_change_alert==========================
     } else if (message.text.toLowerCase().indexOf("/set_eth_change_alert") === 0) {
       telegram.sendMessage(message.chat.id, "What's the new change limit to get alerted for? Choose 0 to disable alerts (Plain number, for example: `10`)", {
         parse_mode: "Markdown"
@@ -340,7 +340,7 @@ function process_message(user, message) {
       user.waiting_for_command = "set_eth_change_alert";
       user.save();
 
-    // ===============================Something else============================
+    // ===========================set_btc_change_alert==========================
     } else if (message.text.toLowerCase().indexOf("/set_btc_change_alert") === 0) {
       telegram.sendMessage(message.chat.id, "What's the new minimum limit to get alerted for? Choose 0 to disable alerts (Plain number, for example: `100`)", {
         parse_mode: "Markdown"
@@ -348,9 +348,13 @@ function process_message(user, message) {
       user.waiting_for_command = "set_btc_change_alert";
       user.save();
 
+    // ===================================DEBUG=================================
+    } else if (message.text.toLowerCase().indexOf("/debug") === 0) {
+      telegram.sendMessage(message.chat.id, JSON.stringify(user));
+
     // ===============================Something else============================
-  } else {
-      if (message.chat.id > 0) {
+    } else {
+      if (message.chat.id > 0) { // If it's a user, not a group
         telegram.sendMessage(message.chat.id, "Nope (Looking for /help ?)");
       }
     }
