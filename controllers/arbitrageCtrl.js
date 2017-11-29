@@ -115,8 +115,8 @@ function btc_prices(callback) {
   });
 
   // ----------- BTC international price
-  valid_request('bitcoinaverage.com', 'https://apiv2.bitcoinaverage.com/constants/exchangerates/global', function (body) {
-    international_price = 1/parseFloat(body['rates']['BTC']['rate']);
+  valid_request('coindesk.com', 'https://api.coindesk.com/v1/bpi/currentprice.json', function (body) {
+    international_price = parseFloat(body['bpi']['USD']['rate_float']);
     process_data();
   });
 
@@ -192,8 +192,8 @@ function btc_price(callback) {
     });
   }
   // ----------- BTC international price
-  valid_request('bitcoinaverage.com', 'https://apiv2.bitcoinaverage.com/constants/exchangerates/global', function (body) {
-    callback(false, 1/parseFloat(body['rates']['BTC']['rate']));
+  valid_request('coindesk.com', 'https://api.coindesk.com/v1/bpi/currentprice.json', function (body) {
+    callback(false, parseFloat(body['bpi']['USD']['rate_float']));
   });
 }
 
