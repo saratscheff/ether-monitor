@@ -103,7 +103,7 @@ cron.schedule('*/2 * * * *', function(){
     if (error){
       console.error('error while cron calculating btc_change alerts: ' + error);
     } else {
-      telegramCtrl.price_change_alerts('BTC');
+      telegramCtrl.price_change_alerts('BTC', international_price);
     }
   }
   arbitrageCtrl.btc_price(check_alerts);
