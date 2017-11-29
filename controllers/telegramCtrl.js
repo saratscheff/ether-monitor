@@ -58,11 +58,11 @@ function price_change_alerts(coin, new_price) {
       var message = '';
       if (last_price < (new_price - change_limit)) {
         send_message = true;
-        message = coin + " PRICE INCREASED: *" + new_price + "*";
+        message = coin + " \uD83D\uDD3A: *" + new_price.toFixed(2) + "*";
         set_user_last_price(coin, new_price, user);
       } else if (last_price > (new_price + change_limit)) {
         send_message = true;
-        message = coin + " PRICE DECREASED: *" + new_price + "*";
+        message = coin + " \uD83D\uDD3B: *" + new_price.toFixed(2) + "*";
         set_user_last_price(coin, new_price, user);
       }
       if (send_message) {
