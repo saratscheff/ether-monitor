@@ -192,23 +192,34 @@ function process_message(user, message) {
       });
     // ================================Ether Status=============================
     } else if(message.text.toLowerCase().indexOf("/eth") === 0 || message.text.toLowerCase().indexOf("/ether") === 0) {
-      var tries = 3;
       function show_arbitrage(error, usd_clp, int_price, exchanges){
-        if (error && tries > 0) {
-          tries--;
-          telegram.sendMessage(message.chat.id, "Too many requests, retrying in 10 seconds...");
-          setTimeout(function() { arbitrageCtrl.eth_prices(show_arbitrage) }, 10000);
-          return;
-        } else if (error) {
+        if (error) {
           telegram.sendMessage(message.chat.id, "ERROR on EtherStatus: " + error);
           return;
         }
         var answer = "";
         answer += "*INTERNATIONAL*\n";
-        answer += "Ether Price in USD: " + int_price.toFixed(2) + "\n";
-        answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
-        answer += "Ether Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
+        if (int_price) {
+          answer += "Ether Price in USD: " + int_price.toFixed(2) + "\n";
+        } else {
+          answer += "Ether Price in USD: ERROR :(\n";
+        }
+        if (usd_clp) {
+          answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
+        } else {
+          answer += "USD Price in CLP: ERROR :(\n";
+        }
+        if (usd_clp && int_price) {
+          answer += "Ether Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
+        } else {
+          answer += "Ether Price in CLP: ERROR :(\n";
+        }
         exchanges.forEach(function(exchange) {
+          if (!exchange.ask) {
+            answer += "*" + exchange.name + "*\n";
+            answer += "ERROR :(\n";
+            return;
+          }
           answer += "*" + exchange.name + "*\n";
           if (exchange.boring_currency === 'USD') {
             answer += "Ask: " + exchange.ask.toFixed(2) + "(" + (exchange.ask*usd_clp).toFixed(1) + ")\n";
@@ -243,6 +254,11 @@ function process_message(user, message) {
         answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
         answer += "Bitcoin Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
         exchanges.forEach(function(exchange) {
+          if (!exchange.ask) {
+            answer += "*" + exchange.name + "*\n";
+            answer += "ERROR :(\n";
+            return;
+          }
           answer += "*" + exchange.name + "*\n";
           if (exchange.boring_currency === 'USD') {
             answer += "Ask: " + exchange.ask.toFixed(2) + "(" + (exchange.ask*usd_clp).toFixed(1) + ")\n";
@@ -262,12 +278,7 @@ function process_message(user, message) {
   } else if(message.text.toLowerCase().indexOf("/arbitrage") === 0 || message.text.toLowerCase().indexOf("/bitcoin") === 0) {
     var tries = 3;
     function show_arbitrage(error, usd_clp, int_price, exchanges){
-      if (error && tries > 0) {
-        tries--;
-        telegram.sendMessage(message.chat.id, "Too many requests, retrying in 10 seconds...");
-        setTimeout(function() { arbitrageCtrl.eth_prices(show_arbitrage) }, 10000);
-        return;
-      } else if (error) {
+      if (error) {
         telegram.sendMessage(message.chat.id, "ERROR on ArbitrageStatus: " + error);
         return;
       }
