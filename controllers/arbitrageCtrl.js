@@ -171,8 +171,8 @@ function eth_price(callback) {
     });
   }
   // ----------- Ether international price
-  valid_request('ethereumprice.org', 'https://ethereumprice.org/wp-content/themes/theme/inc/exchanges/price-data.php?coin=eth&cur=ethusd&ex=waex', function (body) {
-    callback(false, parseFloat(body['current_price']));
+  valid_request('ethereumprice.org', 'https://v2.ethereumprice.org:8080/snapshot/eth/usd/waex/1h', function (body) {
+    callback(false, parseFloat(body['data']['price']));
   });
 }
 
