@@ -16,14 +16,21 @@ function eth_prices(callback) {
       if (catastrophic_error) {
         // Stop...
       } else if (!error && response.statusCode == 200) {
+        console.log('success: ' + name);
         body = JSON.parse(body);
         process_callback(body, false);
       } else {
-        if (count <= 3) {
-          valid_request(name, url, count + 1, process_callback);
+        if (count <= 1) {
+          if (response) { console.log('retrying ' + name + response.statusCode); }
+          setTimeout(function() { valid_request(name, url, count + 1, process_callback); }, 5000);
         } else {
-          // TODO: Add alert to admin
-          process_callback(response.statusCode, true);
+          if (response) {
+            console.log('ERROR ' + name + response.statusCode)
+            process_callback(response.statusCode, true);
+          } else {
+            console.log('ERROR ' + name + response.statusCode)
+            process_callback(error, true);
+          }
         }
       }
     });
@@ -40,11 +47,11 @@ function eth_prices(callback) {
   });
 
   // ----------- Ether international price
-  valid_request('ethereumprice.org', 'https://ethereumprice.org/wp-content/themes/theme/inc/exchanges/price-data.php?coin=eth&cur=ethusd&ex=waex', 0, function(body, error) {
+  valid_request('ethereumprice.org', 'https://v2.ethereumprice.org:8080/snapshot/eth/usd/waex/1h', 0, function(body, error) {
     if (error) {
       international_price = false;
     } else {
-      international_price = parseFloat(body['current_price']);
+      international_price = parseFloat(body['data']['price']);
     }
     process_data();
   });
