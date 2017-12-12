@@ -113,7 +113,7 @@ function eth_prices(callback) {
 function btc_prices(callback) {
   var usd_clp;
   var international_price;
-  var exchanges = [null, null, null, null];
+  var exchanges = [null, null, null];
 
   // ----------- USD/CLP
   valid_request('mindicador.cl', 'http://mindicador.cl/api/dolar', 0, function(body, error) {
@@ -138,11 +138,11 @@ function btc_prices(callback) {
   // ----------- EXCHANGES
   valid_request('surbtc.com', 'https://www.surbtc.com/api/v2/markets/BTC-CLP/ticker', 0, function(body, error) {
     if (error) {
-      exchanges[1] = new Exchange('SURBTC', false, false, false);
+      exchanges[0] = new Exchange('SURBTC', false, false, false);
     } else {
       var surbtc_ask = parseFloat(body['ticker']['min_ask'][0]);
       var surbtc_bid = parseFloat(body['ticker']['max_bid'][0]);
-      exchanges[1] = new Exchange('SURBTC', surbtc_ask, surbtc_bid, 'CLP');
+      exchanges[0] = new Exchange('SURBTC', surbtc_ask, surbtc_bid, 'CLP');
     }
     process_data();
   });
