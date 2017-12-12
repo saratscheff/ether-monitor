@@ -237,22 +237,28 @@ function process_message(user, message) {
 
     // ================================BTC Status=============================
     } else if(message.text.toLowerCase().indexOf("/btc") === 0 || message.text.toLowerCase().indexOf("/bitcoin") === 0) {
-      var tries = 3;
       function show_arbitrage(error, usd_clp, int_price, exchanges){
-        if (error && tries > 0) {
-          tries--;
-          telegram.sendMessage(message.chat.id, "Too many requests, retrying in 10 seconds...");
-          setTimeout(function() { arbitrageCtrl.btc_prices(show_arbitrage) }, 10000);
-          return;
-        } else if (error) {
-          telegram.sendMessage(message.chat.id, "ERROR on BTCStatus: " + error);
+        if (error) {
+          telegram.sendMessage(message.chat.id, "ERROR on BtcStatus: " + error);
           return;
         }
         var answer = "";
         answer += "*INTERNATIONAL*\n";
-        answer += "Bitcoin Price in USD: " + int_price.toFixed(2) + "\n";
-        answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
-        answer += "Bitcoin Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
+        if (int_price) {
+          answer += "Btc Price in USD: " + int_price.toFixed(2) + "\n";
+        } else {
+          answer += "Btc Price in USD: ERROR :(\n";
+        }
+        if (usd_clp) {
+          answer += "USD Price in CLP: " + usd_clp.toFixed(2) + "\n";
+        } else {
+          answer += "USD Price in CLP: ERROR :(\n";
+        }
+        if (usd_clp && int_price) {
+          answer += "Btc Price in CLP: " + (usd_clp*int_price).toFixed(1) + "\n";
+        } else {
+          answer += "Btc Price in CLP: ERROR :(\n";
+        }
         exchanges.forEach(function(exchange) {
           if (!exchange.ask) {
             answer += "*" + exchange.name + "*\n";

@@ -2,39 +2,35 @@
 var Exchange = require("../obj/exchange.js");
 var Arbitrage = require("../obj/arbitrage.js");
 
+function valid_request(name, url, count, process_callback) {
+  var request = require('request');
+
+  request(url, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log('success: ' + name);
+      body = JSON.parse(body);
+      process_callback(body, false);
+    } else {
+      if (count <= 1) {
+        if (response) { console.log('retrying ' + name + response.statusCode); }
+        setTimeout(function() { valid_request(name, url, count + 1, process_callback); }, 5000);
+      } else {
+        if (response) {
+          console.log('ERROR ' + name + response.statusCode)
+          process_callback(response.statusCode, true);
+        } else {
+          console.log('ERROR ' + name + error);
+          process_callback(error, true);
+        }
+      }
+    }
+  });
+}
+
 function eth_prices(callback) {
   var usd_clp;
   var international_price;
   var exchanges = [null, null, null, null];
-
-  var catastrophic_error = false;
-
-  function valid_request(name, url, count, process_callback) {
-    var request = require('request');
-
-    request(url, function (error, response, body) {
-      if (catastrophic_error) {
-        // Stop...
-      } else if (!error && response.statusCode == 200) {
-        console.log('success: ' + name);
-        body = JSON.parse(body);
-        process_callback(body, false);
-      } else {
-        if (count <= 1) {
-          if (response) { console.log('retrying ' + name + response.statusCode); }
-          setTimeout(function() { valid_request(name, url, count + 1, process_callback); }, 5000);
-        } else {
-          if (response) {
-            console.log('ERROR ' + name + response.statusCode)
-            process_callback(response.statusCode, true);
-          } else {
-            console.log('ERROR ' + name + error);
-            process_callback(error, true);
-          }
-        }
-      }
-    });
-  }
 
   // ----------- USD/CLP
   valid_request('mindicador.cl', 'http://mindicador.cl/api/dolar', 0, function(body, error) {
@@ -119,27 +115,6 @@ function btc_prices(callback) {
   var international_price;
   var exchanges = [null, null, null, null];
 
-  var catastrophic_error = false;
-
-  function valid_request(name, url, count, process_callback) {
-    var request = require('request');
-
-    request(url, function (error, response, body) {
-      if (catastrophic_error) {
-        // Stop...
-      } else if (!error && response.statusCode == 200) {
-        body = JSON.parse(body);
-        process_callback(body, false);
-      } else {
-        if (count <= 3) {
-          valid_request(name, url, count + 1, process_callback);
-        } else {
-          process_callback(response.statusCode, true);
-        }
-      }
-    });
-  }
-
   // ----------- USD/CLP
   valid_request('mindicador.cl', 'http://mindicador.cl/api/dolar', 0, function(body, error) {
     if (error) {
@@ -208,20 +183,6 @@ function btc_prices(callback) {
 }
 
 function eth_price(callback) {
-  function valid_request(name, url, process_callback) {
-    var request = require('request');
-
-    request(url, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        body = JSON.parse(body);
-        process_callback(body);
-      } else if (error){
-        callback('ERROR requesting to ' + name + '. Error_message =>' + error, null);
-      } else {
-        callback('ERROR requesting to ' + name + '. Status code => ' + response.statusCode, null);
-      }
-    });
-  }
   // ----------- Ether international price
   valid_request('ethereumprice.org', 'https://v2.ethereumprice.org:8080/snapshot/eth/usd/waex/1h', 0, function(body, error) {
     callback(false, parseFloat(body['data']['price']));
@@ -229,20 +190,6 @@ function eth_price(callback) {
 }
 
 function btc_price(callback) {
-  function valid_request(name, url, process_callback) {
-    var request = require('request');
-
-    request(url, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        body = JSON.parse(body);
-        process_callback(body);
-      } else if (error){
-        callback('ERROR requesting to ' + name + '. Error_message =>' + error, null);
-      } else {
-        callback('ERROR requesting to ' + name + '. Status code => ' + response.statusCode, null);
-      }
-    });
-  }
   // ----------- BTC international price
   valid_request('coindesk.com', 'https://api.coindesk.com/v1/bpi/currentprice.json', 0, function(body, error) {
     callback(false, parseFloat(body['bpi']['USD']['rate_float']));
