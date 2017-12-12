@@ -28,7 +28,7 @@ function eth_prices(callback) {
             console.log('ERROR ' + name + response.statusCode)
             process_callback(response.statusCode, true);
           } else {
-            console.log('ERROR ' + name + response.statusCode)
+            console.log('ERROR ' + name + error);
             process_callback(error, true);
           }
         }
