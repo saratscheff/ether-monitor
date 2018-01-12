@@ -37,7 +37,12 @@ function eth_prices(callback) {
     if (error) {
       usd_clp = false;
     } else {
-      usd_clp = parseFloat(body['serie'][0]['valor']);
+      try {
+        usd_clp = parseFloat(body['serie'][0]['valor']);
+      }
+      catch(error) {
+        usd_clp = false;
+      }
     }
     process_data();
   });
@@ -47,7 +52,12 @@ function eth_prices(callback) {
     if (error) {
       international_price = false;
     } else {
-      international_price = parseFloat(body['data']['price']);
+      try {
+        international_price = parseFloat(body['data']['price']);
+      }
+      catch(error) {
+        international_price = false;
+      }
     }
     process_data();
   });
@@ -57,9 +67,14 @@ function eth_prices(callback) {
     if (error) {
       exchanges[0] = new Exchange('CRYPTOMKT', false, false, false);
     } else {
-      var cryptomkt_ask = parseFloat(body['data']['prices_ask']['values'][0]['close_price']);
-      var cryptomkt_bid = parseFloat(body['data']['prices_bid']['values'][0]['close_price']);
-      exchanges[0] = new Exchange('CRYPTOMKT', cryptomkt_ask, cryptomkt_bid, 'CLP');
+      try {
+        var cryptomkt_ask = parseFloat(body['data']['prices_ask']['values'][0]['close_price']);
+        var cryptomkt_bid = parseFloat(body['data']['prices_bid']['values'][0]['close_price']);
+        exchanges[0] = new Exchange('CRYPTOMKT', cryptomkt_ask, cryptomkt_bid, 'CLP');
+      }
+      catch(error) {
+        exchanges[0] = new Exchange('CRYPTOMKT', false, false, false);
+      }
     }
     process_data();
   });
@@ -68,9 +83,14 @@ function eth_prices(callback) {
     if (error) {
       exchanges[1] = new Exchange('SURBTC', false, false, false);
     } else {
-      var surbtc_ask = parseFloat(body['ticker']['min_ask'][0]);
-      var surbtc_bid = parseFloat(body['ticker']['max_bid'][0]);
-      exchanges[1] = new Exchange('SURBTC', surbtc_ask, surbtc_bid, 'CLP');
+      try {
+        var surbtc_ask = parseFloat(body['ticker']['min_ask'][0]);
+        var surbtc_bid = parseFloat(body['ticker']['max_bid'][0]);
+        exchanges[1] = new Exchange('SURBTC', surbtc_ask, surbtc_bid, 'CLP');
+      }
+      catch(error) {
+        exchanges[1] = new Exchange('SURBTC', false, false, false);
+      }
     }
     process_data();
   });
@@ -79,9 +99,14 @@ function eth_prices(callback) {
     if (error) {
       exchanges[2] = new Exchange('KRAKEN', false, false, false);
     } else {
-      var kraken_ask = parseFloat(body['result']['XETHZUSD']['a'][0]);
-      var kraken_bid = parseFloat(body['result']['XETHZUSD']['b'][0]);
-      exchanges[2] = new Exchange('KRAKEN', kraken_ask, kraken_bid, 'USD');
+      try {
+        var kraken_ask = parseFloat(body['result']['XETHZUSD']['a'][0]);
+        var kraken_bid = parseFloat(body['result']['XETHZUSD']['b'][0]);
+        exchanges[2] = new Exchange('KRAKEN', kraken_ask, kraken_bid, 'USD');
+      }
+      catch(error) {
+        exchanges[2] = new Exchange('KRAKEN', false, false, false);
+      }
     }
     process_data();
   });
@@ -90,14 +115,19 @@ function eth_prices(callback) {
     if (error) {
       exchanges[3] = new Exchange('LYKKE', false, false, false);
     } else {
-      body.some(function(pair) {
-        if (pair['id'] === 'ETHUSD') {
-          var lykke_ask = parseFloat(pair['ask']);
-          var lykke_bid = parseFloat(pair['bid']);
-          exchanges[3] = new Exchange('LYKKE', lykke_ask, lykke_bid, 'USD');
-          return true;
-        }
-      });
+      try {
+        body.some(function(pair) {
+          if (pair['id'] === 'ETHUSD') {
+            var lykke_ask = parseFloat(pair['ask']);
+            var lykke_bid = parseFloat(pair['bid']);
+            exchanges[3] = new Exchange('LYKKE', lykke_ask, lykke_bid, 'USD');
+            return true;
+          }
+        });
+      }
+      catch(error) {
+        exchanges[3] = new Exchange('LYKKE', false, false, false);
+      }
     }
     process_data();
   });
@@ -120,7 +150,12 @@ function btc_prices(callback) {
     if (error) {
       usd_clp = false;
     } else {
-      usd_clp = parseFloat(body['serie'][0]['valor']);
+      try {
+        usd_clp = parseFloat(body['serie'][0]['valor']);
+      }
+      catch(error) {
+        usd_clp = false;
+      }
     }
     process_data();
   });
@@ -130,7 +165,12 @@ function btc_prices(callback) {
     if (error) {
       international_price = false;
     } else {
-      international_price = parseFloat(body['bpi']['USD']['rate_float']);
+      try {
+        international_price = parseFloat(body['bpi']['USD']['rate_float']);
+      }
+      catch(error) {
+        international_price = false;
+      }
     }
     process_data();
   });
@@ -140,9 +180,14 @@ function btc_prices(callback) {
     if (error) {
       exchanges[0] = new Exchange('SURBTC', false, false, false);
     } else {
-      var surbtc_ask = parseFloat(body['ticker']['min_ask'][0]);
-      var surbtc_bid = parseFloat(body['ticker']['max_bid'][0]);
-      exchanges[0] = new Exchange('SURBTC', surbtc_ask, surbtc_bid, 'CLP');
+      try {
+        var surbtc_ask = parseFloat(body['ticker']['min_ask'][0]);
+        var surbtc_bid = parseFloat(body['ticker']['max_bid'][0]);
+        exchanges[0] = new Exchange('SURBTC', surbtc_ask, surbtc_bid, 'CLP');
+      }
+      catch(error) {
+        exchanges[0] = new Exchange('SURBTC', false, false, false);
+      }
     }
     process_data();
   });
@@ -151,9 +196,14 @@ function btc_prices(callback) {
     if (error) {
       exchanges[1] = new Exchange('KRAKEN', false, false, false);
     } else {
-      var kraken_ask = parseFloat(body['result']['XXBTZUSD']['a'][0]);
-      var kraken_bid = parseFloat(body['result']['XXBTZUSD']['b'][0]);
-      exchanges[1] = new Exchange('KRAKEN', kraken_ask, kraken_bid, 'USD');
+      try {
+        var kraken_ask = parseFloat(body['result']['XXBTZUSD']['a'][0]);
+        var kraken_bid = parseFloat(body['result']['XXBTZUSD']['b'][0]);
+        exchanges[1] = new Exchange('KRAKEN', kraken_ask, kraken_bid, 'USD');
+      }
+      catch(error) {
+        exchanges[1] = new Exchange('KRAKEN', false, false, false);
+      }
     }
     process_data();
   });
@@ -162,14 +212,19 @@ function btc_prices(callback) {
     if (error) {
       exchanges[2] = new Exchange('LYKKE', false, false, false);
     } else {
-      body.some(function(pair) {
-        if (pair['id'] === 'BTCUSD') {
-          var lykke_ask = parseFloat(pair['ask']);
-          var lykke_bid = parseFloat(pair['bid']);
-          exchanges[2] = new Exchange('LYKKE', lykke_ask, lykke_bid, 'USD');
-          return true;
-        }
-      });
+      try {
+        body.some(function(pair) {
+          if (pair['id'] === 'BTCUSD') {
+            var lykke_ask = parseFloat(pair['ask']);
+            var lykke_bid = parseFloat(pair['bid']);
+            exchanges[2] = new Exchange('LYKKE', lykke_ask, lykke_bid, 'USD');
+            return true;
+          }
+        });
+      }
+      catch(error) {
+        exchanges[2] = new Exchange('LYKKE', false, false, false);
+      }
     }
     process_data();
   });
