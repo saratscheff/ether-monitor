@@ -41,7 +41,7 @@ Contributions through pull requests are more than welcomed.
 
 ## Authors
 
-Pedro Saratscheff @[psaratscheff](https://github.com/psaratscheff)
+Pedro Saratscheff @[saratscheff](https://github.com/saratscheff)
 
 See also the list of [contributors](https://github.com/psaratscheff/ether-monitor/graphs/contributors) who participated in this project.
 
@@ -52,3 +52,4 @@ This project is licensed under the MIT License
 ## Extra comments
 
 This is just a quick helper for my current needs, no intention so far to develop a more finished version.
+Also, I'm aware the code is almost as ugly as it could be :) Ups!
