@@ -15,7 +15,7 @@ var userSchema = mongoose.Schema({
   n_workers: Number,
   arbitrage_minimum_alert: Number,
   cryptomkt: Boolean,
-  surbtc: Boolean,
+  buda: Boolean,
   kraken: Boolean,
   lykke: Boolean,
   waiting_for_command: String,

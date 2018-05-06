@@ -64,13 +64,13 @@ function eth_prices(callback) {
     process_data();
   });
 
-  valid_request('surbtc.com', 'https://www.surbtc.com/api/v2/markets/ETH-CLP/ticker', 0, function(body, error) {
+  valid_request('buda.com', 'https://www.buda.com/api/v2/markets/ETH-CLP/ticker', 0, function(body, error) {
     if (error) {
-      exchanges[1] = new Exchange('SURBTC', false, false, false);
+      exchanges[1] = new Exchange('BUDA', false, false, false);
     } else {
-      var surbtc_ask = parseFloat(body['ticker']['min_ask'][0]);
-      var surbtc_bid = parseFloat(body['ticker']['max_bid'][0]);
-      exchanges[1] = new Exchange('SURBTC', surbtc_ask, surbtc_bid, 'CLP');
+      var buda_ask = parseFloat(body['ticker']['min_ask'][0]);
+      var buda_bid = parseFloat(body['ticker']['max_bid'][0]);
+      exchanges[1] = new Exchange('BUDA', buda_ask, buda_bid, 'CLP');
     }
     process_data();
   });
@@ -136,13 +136,13 @@ function btc_prices(callback) {
   });
 
   // ----------- EXCHANGES
-  valid_request('surbtc.com', 'https://www.surbtc.com/api/v2/markets/BTC-CLP/ticker', 0, function(body, error) {
+  valid_request('buda.com', 'https://www.buda.com/api/v2/markets/BTC-CLP/ticker', 0, function(body, error) {
     if (error) {
-      exchanges[0] = new Exchange('SURBTC', false, false, false);
+      exchanges[0] = new Exchange('BUDA', false, false, false);
     } else {
-      var surbtc_ask = parseFloat(body['ticker']['min_ask'][0]);
-      var surbtc_bid = parseFloat(body['ticker']['max_bid'][0]);
-      exchanges[0] = new Exchange('SURBTC', surbtc_ask, surbtc_bid, 'CLP');
+      var buda_ask = parseFloat(body['ticker']['min_ask'][0]);
+      var buda_bid = parseFloat(body['ticker']['max_bid'][0]);
+      exchanges[0] = new Exchange('BUDA', buda_ask, buda_bid, 'CLP');
     }
     process_data();
   });

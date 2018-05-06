@@ -11,7 +11,7 @@ router.get('/', function(req, res){
 
 // Obsolete route for pending API
 // router.get('/ether_arbitrage', function(req, res){
-//   function show_arbitrage(error, crypto_ask, crypto_bid, surbtc_ask, surbtc_bid, int_price, usd_clp){
+//   function show_arbitrage(error, crypto_ask, crypto_bid, buda_ask, buda_bid, int_price, usd_clp){
 //     if (error) {
 //       res.status(500);
 //       res.setHeader('Content-Type', 'application/json');

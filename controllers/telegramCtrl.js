@@ -118,13 +118,13 @@ function process_message(user, message) {
     var new_limit = parseInt(message.text);
     if (new_limit && message.text.length <= 4) {
       user.cryptomkt = false;
-      user.surbtc = false;
+      user.buda = false;
       user.kraken = false;
       user.lykke = false;
       for (market = 0; market < message.text.length; market++){
         switch (parseInt(message.text[market])) {
           case 1: user.cryptomkt = true; break;
-          case 2: user.surbtc = true; break;
+          case 2: user.buda = true; break;
           case 3: user.kraken = true; break;
           case 4: user.lykke = true; break;
         }
@@ -337,7 +337,7 @@ function process_message(user, message) {
 
     // ============================Set Arbitrage Markets========================
     } else if (message.text.toLowerCase().indexOf("/set_arbitrage_markets") === 0) {
-      telegram.sendMessage(message.chat.id, "Please choose markets: 1 => Cryptomkt, 2 => Surbtc, 3 => Kraken, 4 => Lykke (For example, to deactivate kraken alerts: `124`)", {
+      telegram.sendMessage(message.chat.id, "Please choose markets: 1 => Cryptomkt, 2 => Buda, 3 => Kraken, 4 => Lykke (For example, to deactivate kraken alerts: `124`)", {
         parse_mode: "Markdown"
       });
       user.waiting_for_command = "set_arbitrage_markets";
@@ -387,7 +387,7 @@ function check_user(message, callback) {
                                     n_workers: 0,
                                     arbitrage_minimum_alert: undefined,
                                     cryptomkt: true,
-                                    surbtc: true,
+                                    buda: true,
                                     kraken: true,
                                     lykke: true
                                   });
